@@ -5,7 +5,7 @@ const fs = require('fs')
 // }
 module.exports = {
   port: '8900',
-  title: '标题',
+  title: 'junjun的小站',
   description: '描述',
   markdown: {
     // 代码显示行数
@@ -20,9 +20,13 @@ module.exports = {
     }
   },
   themeConfig: {
+    // 默认情况下，侧边栏只会显示由当前活动页面的标题（headers）组成的链接，你可以将 themeConfig.displayAllHeaders 设置为 true 来显示所有页面的标题链接：
+    // 默认展开所有页面的标题链接
+    displayAllHeaders: true,
     nav: [
-      { text: '前端积累', link: '/web_accumulate/JS' },
+      { text: '大前端', link: '/frontend/' },
       { text: 'vue3', link: '/vue3/' },
+      { text: '数据结构和算法', link: '/algorithm/' },
       { text: 'react', link: '/react_study/' },
       { text: 'webpack', link: '/webpack/' },
       { text: '数据可视化', link: '/datav_docs/' },
@@ -37,61 +41,90 @@ module.exports = {
     ],
     sidebar: {
       collapsable: false,
-      '/web_accumulate/': [
-        '/web_accumulate/JS',
-        '/web_accumulate/CSS',
-        '/web_accumulate/Vue'
-        // '/web_accumulate/css/', 这个路径查找 web_accumulate=>css文件夹=>README.md文件
+      '/frontend/': [
+        '/frontend/', 
+        {
+          title: '02-前端框架分类及选型',
+          collapsable: false,
+          path: '/frontend/02-前端框架分类及选型/koa',
+          children: [
+            '/frontend/02-前端框架分类及选型/koa',
+          ]
+        },
+        {
+          title: '03-企业标准的开发环境搭建',
+          collapsable: false,
+          path: '/frontend/03-企业标准的开发环境搭建/docker',
+          children: [
+            '/frontend/03-企业标准的开发环境搭建/docker',
+            '/frontend/03-企业标准的开发环境搭建/docker进阶',
+            '/frontend/03-企业标准的开发环境搭建/linux的简单介绍',
+          ]
+        },
+        {
+          title: '04-必会的前端工程化工具',
+          collapsable: false,
+          path: '/frontend/04-必会的前端工程化工具',
+          children: [
+            '/frontend/04-必会的前端工程化工具/前端打包神器 webpack',
+            '/frontend/04-必会的前端工程化工具/自动化工具 gulp',
+            '/frontend/04-必会的前端工程化工具/Yeoman创建自己的脚手架',
+          ]
+        },
+      ],
+      '/algorithm/': [
+        {
+          title: '数据结构和算法',
+          collapsable: false,
+          path: '/algorithm/'
+        },
+        {
+          title: 'js版',
+          collapsable: false,
+          children: ['/algorithm/js/js']
+        },
+        {
+          title: 'java版',
+          collapsable: false,
+          children: ['/algorithm/java/java']
+        }
       ],
       '/vue3/': [
         '/vue3/',
         '/vue3/vue3-basic',
         '/vue3/vue3-project',
-        // {
-        //   title: 'vue3项目起航',
-        //   collapsable: false,
-        //   children: [
-        //     '/vue3/vue3-project'
-        //   ]
-        // }
+        '/vue3/vue3-component'
       ],
-      // '/webpack/': [
-      //   '/webpack/',
+      // '/react_study/': [
+      //   '/react_study/',
       //   {
       //     collapsable: false,
-      //     children: ['/webpack/基本使用'],
+      //     children: ['/react_study/React']
       //   },
+      //   {
+      //     collapsable: true,
+      //     children: ['/react_study/redux']
+      //   },
+      //   // 这玩意没学
+      //   {
+      //     collapsable: false,
+      //     children: ['/react_study/mobx']
+      //   },
+      //   {
+      //     collapsable: false,
+      //     children: ['/react_study/Next']
+      //   },
+      //   {
+      //     title: 'XueCheng-Online',
+      //     collapsable: false,
+      //     children: [
+      //       '/react_study/01项目说明',
+      //       '/react_study/02框架搭建',
+      //       '/react_study/03学生端功能实现',
+      //       '/react_study/05注册功能'
+      //     ]
+      //   }
       // ],
-      '/react_study/': [
-        '/react_study/',
-        {
-          collapsable: false,
-          children: ['/react_study/React']
-        },
-        {
-          collapsable: true,
-          children: ['/react_study/redux']
-        },
-        // 这玩意没学
-        {
-          collapsable: false,
-          children: ['/react_study/mobx']
-        },
-        {
-          collapsable: false,
-          children: ['/react_study/Next']
-        },
-        {
-          title: 'XueCheng-Online',
-          collapsable: false,
-          children: [
-            '/react_study/01项目说明',
-            '/react_study/02框架搭建',
-            '/react_study/03学生端功能实现',
-            '/react_study/05注册功能'
-          ]
-        }
-      ],
       '/markdown/': ['/markdown/'],
       '/interview/': ['/interview/'],
       '/webpack/': [
@@ -108,7 +141,25 @@ module.exports = {
           children: ['/datav_docs/svg', '/datav_docs/svgAnimation']
         }
       ]
-    }
+    },
+    // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
+    // repo: 'https://github.com/Mulander-J/Wiki1001Pro.git',
+    // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
+    // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
+    // repoLabel: 'GitHub',
+    // 以下为可选的编辑链接选项
+    // 假如你的文档仓库和项目本身不在一个仓库：
+    // docsRepo: 'https://github.com/Mulander-J/Wiki1001Dev',
+    // 假如文档不是放在仓库的根目录下：
+    // docsDir: 'docs',
+    // 假如文档放在一个特定的分支下：
+    // docsBranch: 'master',
+    // 默认是 false, 设置为 true 来启用
+    // editLinks: true,
+    // 默认为 "Edit this page"
+    // editLinkText: '博主通道__GitHub Private Repo ！',
+    // 文档更新时间：每个文件git最后提交的时间,
+    lastUpdated: '最后编辑时间'
   }
 }
 function genSidebarConfig(dir, hasSub) {

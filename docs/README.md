@@ -2,7 +2,7 @@
 home: true
 # heroImage: ./img/lion.png
 actionText: 开始 →
-actionLink: /web_accumulate/
+actionLink: /frontend/
 features:
 - title: 文档工具-VuePress
   details: 一个以 Vue 驱动为编写技术文档而优化的简约静态网站生成工具
