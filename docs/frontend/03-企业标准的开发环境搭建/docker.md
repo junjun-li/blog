@@ -130,13 +130,15 @@ systemctl restart docker
 
 ## docker 常用命令
 
-[菜鸟教程Docker命令大全](https://www.runoob.com/docker/docker-command-manual.html)
+[菜鸟教程 Docker 命令大全](https://www.runoob.com/docker/docker-command-manual.html)
 
 ```shell
 # 查看所有镜像
 docker image
 # 查看所有容器
 docker ps
+# 筛选需要查看的容器
+docker ps | grep tmp
 # 停止容器
 docker stop (容器名称 | 容器Id)
 # 运行一个容器
@@ -166,7 +168,7 @@ Compose 是用于定义和运行多容器 Docker 应用程序的工具。通过 
 
 [Install Docker Compose](https://docs.docker.com/compose/install/)
 
-linux的安装方式
+linux 的安装方式
 
 ```shell
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -222,7 +224,7 @@ Creating home_mysql2_1 ... done
 
 ## docker Hub 的使用
 
-就像npm一样, 我们自己也可以上传docker镜像
+就像 npm 一样, 我们自己也可以上传 docker 镜像
 
 [Docker Hub](https://hub.docker.com/)
 
@@ -234,6 +236,6 @@ docker commit 容器id l11776174/mysql:1.0
 docker push l11776174/mysql:1.0
 ```
 
-## node以及nvm, 发布自己的node包
+## node 以及 nvm, 发布自己的 node 包
 
 [imocc](https://class.imooc.com/lesson/1159#mid=27895)

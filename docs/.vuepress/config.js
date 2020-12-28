@@ -26,6 +26,7 @@ module.exports = {
     nav: [
       { text: '大前端', link: '/frontend/' },
       { text: 'vue3', link: '/vue3/' },
+      { text: 'web', link: '/web/apply、call、bind的区别' },
       { text: '数据结构和算法', link: '/algorithm/' },
       { text: 'react', link: '/react_study/' },
       { text: 'webpack', link: '/webpack/' },
@@ -49,6 +50,7 @@ module.exports = {
           path: '/frontend/02-前端框架分类及选型/koa',
           children: [
             '/frontend/02-前端框架分类及选型/koa',
+            '/frontend/02-前端框架分类及选型/使用nodemailer配置邮件服务',
           ]
         },
         {
@@ -69,6 +71,23 @@ module.exports = {
             '/frontend/04-必会的前端工程化工具/前端打包神器 webpack',
             '/frontend/04-必会的前端工程化工具/自动化工具 gulp',
             '/frontend/04-必会的前端工程化工具/Yeoman创建自己的脚手架',
+          ]
+        },
+        {
+          title: '05-NoSQL数据库的设计与集成',
+          collapsable: false,
+          path: '/frontend/05-NoSQL数据库的设计与集成',
+          children: [
+            '/frontend/05-NoSQL数据库的设计与集成/NoSQL数据库MongoDB认知与设计',
+          ]
+        },
+        {
+          title: '08-团队协作-文档管理与缺陷控制',
+          collapsable: false,
+          path: '/frontend/08-团队协作-文档管理与缺陷控制',
+          children: [
+            '/frontend/08-团队协作-文档管理与缺陷控制/团队协作-版本管理',
+            '/frontend/08-团队协作-文档管理与缺陷控制/git工具导学&git多密钥管理',
           ]
         },
       ],

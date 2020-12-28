@@ -2,9 +2,9 @@
 
 ### apply、call
 
-[Function.prototype.call()][https://developer.mozilla.org/zh-cn/docs/web/javascript/reference/global_objects/function/call]
+[Function.prototype.call](https://developer.mozilla.org/zh-cn/docs/web/javascript/reference/global_objects/function/call)
 
-[Function.prototype.apply()][https://developer.mozilla.org/zh-cn/docs/web/javascript/reference/global_objects/function/apply]
+[Function.prototype.apply](https://developer.mozilla.org/zh-cn/docs/web/javascript/reference/global_objects/function/apply)
 
 在 js 中, `call`和`apply`都是为了改变某个函数运行时的上下文(context)而存在的, 简单的来说就是为了改变函数内部的 this 指向
 
@@ -43,11 +43,11 @@ obj.myFunc.bind(ww, ['上海', '男']) // 我的名字叫王五, 我今年99岁,
 
 为了加深记忆，举例一些常用用法
 
-- 经典面试题, for循环中一秒打印一个下标
+- 经典面试题, for 循环中一秒打印一个下标
 
 ```js
-for(var i = 0; i < 10; i++) {
-  setTimeout(console.log.bind(console, i), i * 1000);
+for (var i = 0; i < 10; i++) {
+  setTimeout(console.log.bind(console, i), i * 1000)
 }
 ```
 
