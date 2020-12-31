@@ -76,9 +76,11 @@ module.exports = {
         {
           title: '05-NoSQL数据库的设计与集成',
           collapsable: false,
-          path: '/frontend/05-NoSQL数据库的设计与集成',
+          path: '/frontend/05-NoSQL数据库的设计与集成/NoSQL数据库&设计原则',
           children: [
-            '/frontend/05-NoSQL数据库的设计与集成/NoSQL数据库MongoDB认知与设计',
+            '/frontend/05-NoSQL数据库的设计与集成/MongoDB简介&安装',
+            '/frontend/05-NoSQL数据库的设计与集成/NoSQL数据库&设计原则',
+            '/frontend/05-NoSQL数据库的设计与集成/mongoose使用简介',
           ]
         },
         {
@@ -87,7 +89,9 @@ module.exports = {
           path: '/frontend/08-团队协作-文档管理与缺陷控制',
           children: [
             '/frontend/08-团队协作-文档管理与缺陷控制/团队协作-版本管理',
+            '/frontend/08-团队协作-文档管理与缺陷控制/ESLint',
             '/frontend/08-团队协作-文档管理与缺陷控制/git工具导学&git多密钥管理',
+            '/frontend/08-团队协作-文档管理与缺陷控制/docker搭建gitlab平台',
           ]
         },
       ],
