@@ -74,13 +74,15 @@ module.exports = {
           ]
         },
         {
-          title: '05-NoSQL数据库的设计与集成',
+          title: '05-NoSQL数据库的设计与集成&Redis的安装与基本使用',
           collapsable: false,
-          path: '/frontend/05-NoSQL数据库的设计与集成/NoSQL数据库&设计原则',
+          path: '/frontend/05-NoSQL数据库的设计与集成/MongoDB简介&安装',
           children: [
             '/frontend/05-NoSQL数据库的设计与集成/MongoDB简介&安装',
             '/frontend/05-NoSQL数据库的设计与集成/NoSQL数据库&设计原则',
             '/frontend/05-NoSQL数据库的设计与集成/mongoose使用简介',
+            '/frontend/05-NoSQL数据库的设计与集成/Redis认知与必备CLI命令',
+            '/frontend/05-NoSQL数据库的设计与集成/Redis和Node集成与实践',
           ]
         },
         {
@@ -104,7 +106,10 @@ module.exports = {
         {
           title: 'js版',
           collapsable: false,
-          children: ['/algorithm/js/js']
+          children: [
+            '/algorithm/js/js',
+            '/algorithm/js/反转单词',
+          ]
         },
         {
           title: 'java版',
