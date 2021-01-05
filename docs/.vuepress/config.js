@@ -86,14 +86,23 @@ module.exports = {
           ]
         },
         {
-          title: '08-团队协作-文档管理与缺陷控制',
+          title: '08-团队协作-版本管理',
           collapsable: false,
-          path: '/frontend/08-团队协作-文档管理与缺陷控制',
+          path: '/frontend/08-团队协作-版本管理/团队协作-版本管理',
           children: [
-            '/frontend/08-团队协作-文档管理与缺陷控制/团队协作-版本管理',
-            '/frontend/08-团队协作-文档管理与缺陷控制/ESLint',
-            '/frontend/08-团队协作-文档管理与缺陷控制/git工具导学&git多密钥管理',
-            '/frontend/08-团队协作-文档管理与缺陷控制/docker搭建gitlab平台',
+            '/frontend/08-团队协作-版本管理/团队协作-版本管理',
+            '/frontend/08-团队协作-版本管理/ESLint',
+            '/frontend/08-团队协作-版本管理/git工具导学&git多密钥管理',
+            '/frontend/08-团队协作-版本管理/docker搭建gitlab平台',
+          ]
+        },
+        {
+          title: '09-团队协作-自动化流程',
+          collapsable: false,
+          path: '/frontend/09-团队协作-自动化流程/jenkins安装及对接gitlab',
+          children: [
+            '/frontend/09-团队协作-自动化流程/jenkins安装及对接gitlab',
+            '/frontend/09-团队协作-自动化流程/Dockerfile简介及使用',
           ]
         },
       ],

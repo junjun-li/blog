@@ -128,6 +128,66 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
+[配置阿里云加速地址](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors)
+
+::: tip 提醒
+以下内容摘抄自 [https://yeasy.gitbook.io/docker_practice/install/mirror](https://yeasy.gitbook.io/docker_practice/install/mirror)
+:::
+
+### Ubuntu 16.04+、Debian 8+、CentOS 7+
+
+目前主流 Linux 发行版均已使用 [systemd](https://systemd.io/) 进行服务管理，这里介绍如何在使用 systemd 的 Linux 发行版中配置镜像加速器。
+
+请首先执行以下命令，查看是否在 `docker.service` 文件中配置过镜像地址。
+
+```shell
+systemctl cat docker | grep '\-\-registry\-mirror'
+```
+
+如果该命令有输出，那么请执行 `$ systemctl cat docker` 查看 `ExecStart=` 出现的位置，修改对应的文件内容去掉 `--registry-mirror` 参数及其值，并按接下来的步骤进行配置。
+
+如果以上命令没有任何输出，那么就可以在 `/etc/docker/daemon.json` 中写入如下内容（如果文件不存在请新建该文件）：
+
+```json
+{
+  "registry-mirrors": [
+    "https://hub-mirror.c.163.com",
+    "https://mirror.baidubce.com"
+  ]
+}
+```
+
+> 注意，一定要保证该文件符合 json 规范，否则 Docker 将不能启动。
+
+之后重新启动服务。
+
+```shell
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart docker
+```
+
+### macOS
+
+对于使用 macOS 的用户，在任务栏点击 Docker Desktop 应用图标 -> Perferences，在左侧导航菜单选择 Docker Engine，在右侧像下边一样编辑 json 文件。修改完成之后，点击 Apply & Restart 按钮，Docker 就会重启并应用配置的镜像地址了。
+
+```json
+{
+  "registry-mirrors": [
+    "https://hub-mirror.c.163.com",
+    "https://mirror.baidubce.com"
+  ]
+}
+```
+
+### 检查加速器是否生效
+
+执行 `$ docker info`，如果从结果中看到了如下内容，说明配置成功。
+
+```
+Registry Mirrors:
+ https://hub-mirror.c.163.com/
+```
+
 ## docker 常用命令
 
 [菜鸟教程 Docker 命令大全](https://www.runoob.com/docker/docker-command-manual.html)
@@ -178,6 +238,29 @@ chmod +x /usr/local/bin/docker-compose
 
 # 查看docker-compose版本
 docker-compose --version
+```
+
+## 离线安装
+
+上面的地址, 下载有时候很慢, 我们之间进入 github 的 docker-compose 里面下载
+
+[github-docker-compose-download](https://github.com/docker/compose/releases)
+
+目前最新的稳定版是 1.27.4
+
+[![sCSa28.png](https://s3.ax1x.com/2021/01/03/sCSa28.png)](https://imgchr.com/i/sCSa28)
+
+下载之后, 改名为 `docker-compose`, 然后上传到 linux 服务器的 `/usr/local/bin`
+
+[![sCSe4x.png](https://s3.ax1x.com/2021/01/03/sCSe4x.png)](https://imgchr.com/i/sCSe4x)
+
+```shell
+# 添加可执行权限
+sudo chmod +x /usr/local/bin/docker-compose
+
+# 查看 docker-compose 版本
+docker-compose -v
+docker-compose version 1.27.4, build 40524192
 ```
 
 ## docker-compose.yml 文件的使用
