@@ -117,7 +117,7 @@ module.exports = {
           collapsable: false,
           children: [
             '/algorithm/js/js',
-            '/algorithm/js/反转单词',
+            '/algorithm/js/反转单词'
           ]
         },
         {
