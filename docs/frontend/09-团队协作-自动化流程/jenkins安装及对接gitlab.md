@@ -14,6 +14,11 @@
 
 ## docker-compose 安装 jenkins
 
+::: warning 警告
+`/usr/bin/docker` 和 `/var/run/docker.sock`这两个路径不要改, 这是为了让jenkins中, 使用shell脚本的时候, 可以使用docker的命令
+
+::: 
+
 ```yml
 version: '3'
 services:
@@ -21,6 +26,7 @@ services:
     container_name: 'jenkins'
     image: jenkins/jenkins:lts
     restart: always
+    # 这一句别忘记了
     user: jenkins:994
     ports:
       - '11005:8080'
@@ -28,8 +34,10 @@ services:
       - '10051:10051'
     volumes:
       - /docker-data/jenkins/data:/var/jenkins_home
-      - /docker-data/jenkins/docker:/usr/bin/docker
-      - /docker-data/jenkins/docker.sock:/var/run/docker.sock
+      # 把宿主机的docker用户,拷贝给jenkins,
+      # 让他有一个操作docker的权限
+      - /usr/bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
 ```
 
 ```shell

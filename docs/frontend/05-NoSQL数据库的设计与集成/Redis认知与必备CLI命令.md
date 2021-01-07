@@ -39,6 +39,9 @@ services:
 
 ```
 
+::: warning 警告
+暂时没搞懂, 我用上诉文件装redis, 总是报错, 说啥内存不足啥的, 忘记了, 我直接用下面这一条命令安装的redis
+:::
 ## 使用docker run安装
 
 ```shell
