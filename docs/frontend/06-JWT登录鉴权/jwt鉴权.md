@@ -38,4 +38,15 @@ module.exports = {
 }
 ```
 
-##
+## node 集成 koa-jwt
+
+[npm koa-jwt](https://www.npmjs.com/package/koa-jwt)
+
+```shell
+npm i koa-jwt jsonwebtoken
+```
+
+```js
+// 生成token
+const token = jsonwebtoken.sign({ _id: 'junjun' }, config.jwtSecret)
+```

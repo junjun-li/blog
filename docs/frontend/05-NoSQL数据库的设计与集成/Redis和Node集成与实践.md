@@ -1,10 +1,10 @@
-# Redis和Node集成与实践
+# Redis 和 Node 集成与实践
 
-## Redis GUI工具
+## Redis GUI 工具
 
 [GitHub](https://github.com/qishibo/AnotherRedisDesktopManager/releases)
 
-## Redis Node集成
+## Redis Node 集成
 
 [npm - Redis Node](https://www.npmjs.com/package/redis)
 
@@ -22,7 +22,7 @@ const options = {
   detect_buffers: true,
   // https://github.com/NodeRedis/node-redis
   // 这里采用 node-redis 官方的例子
-  retry_strategy: (options) => {
+  retry_strategy: options => {
     if (options.error && options.error.code === 'ECONNREFUSED') {
       // End reconnecting on a specific error and flush all commands with
       // a individual error
@@ -41,14 +41,14 @@ const options = {
     }
     // reconnect after
     return Math.min(options.attempt * 100, 3000)
-  },
+  }
 }
 
 // const client = redis.createClient(options)
 const client = promisifyAll(redis.createClient(options))
 
-client.on('error', (err) => {
-  console.log(`redis client Error: ${ err }`)
+client.on('error', err => {
+  console.log(`redis client Error: ${err}`)
 })
 
 const setValue = (key, value) => {
@@ -70,12 +70,12 @@ const setValue = (key, value) => {
 // const { promisify } = require('util')
 // const getAsync = promisify(client.get).bind(client)
 
-const getValue = (key) => {
+const getValue = key => {
   // return getAsync(key)
   return client.getAsync(key)
 }
 
-const getHMValue = (key) => {
+const getHMValue = key => {
   // v8 promisify method use util, must node > 8
   // return promisify(client.hgetall).bind(client)(key)
 
@@ -83,35 +83,23 @@ const getHMValue = (key) => {
   return client.hgetallAsync(key)
 }
 
-const delValue = (key) => {
+const delValue = key => {
   client.del(key, (err, res) => {
     if (res === 1) {
       console.log('delete successfully')
     } else {
-      console.log(`delete redis key error: ${ err }`)
+      console.log(`delete redis key error: ${err}`)
     }
   })
 }
 
-export {
-  client,
-  setValue,
-  getValue,
-  getHMValue,
-  delValue,
-}
-
+export { client, setValue, getValue, getHMValue, delValue }
 ```
 
 使用 `npx babel-node src/config/redis-text.js` 测试我们的是否生效
 
 ```js
-import {
-  setValue,
-  getValue,
-  getHMValue,
-  delValue
-} from './RedisConfig'
+import { setValue, getValue, getHMValue, delValue } from './RedisConfig'
 
 setValue('setValue', 'setValue')
 
@@ -122,7 +110,7 @@ getValue('setValue').then(res => {
 setValue('setObject', {
   name: 'luowei',
   age: 23,
-  email: '981311431@qq.com',
+  email: '981311431@qq.com'
 })
 
 getHMValue('setObject').then(res => {
@@ -130,5 +118,25 @@ getHMValue('setObject').then(res => {
 })
 
 // delValue('setValue')
-
 ```
+
+## redis 版本的问题
+
+今天是 2021.1.9, 我查看我 docker 中 redis 的版本
+
+```shell
+docker exec -it redis redis-server -v
+Redis server v=6.0.9 sha=00000000:0 malloc=jemalloc-5.1.0 bits=64 build=11509227cb1fdf31
+```
+
+我本地 mac 的版本是
+
+```shell
+127.0.0.1:6379> info
+# Server
+redis_version:5.0.8
+```
+
+在我本地使用 node-redis 操作, 是可以设置过期时间的, 使用 6.0 以上的版本却不行
+
+先把 docker 中的 redis 回退一下, 先记录, 方便以后查看问题

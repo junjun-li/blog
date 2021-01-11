@@ -41,7 +41,7 @@ module.exports = {
       }
     ],
     sidebar: {
-      collapsable: false,
+      // collapsable: false,
       '/frontend/': [
         '/frontend/', 
         {
@@ -117,7 +117,8 @@ module.exports = {
           collapsable: false,
           children: [
             '/algorithm/js/js',
-            '/algorithm/js/反转单词'
+            '/algorithm/js/反转单词',
+            '/algorithm/js/计数二进制子串',
           ]
         },
         {
