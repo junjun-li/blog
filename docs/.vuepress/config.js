@@ -28,7 +28,8 @@ module.exports = {
       { text: 'vue3', link: '/vue3/' },
       { text: 'web', link: '/web/apply、call、bind的区别' },
       { text: '数据结构和算法', link: '/algorithm/' },
-      { text: 'react', link: '/react_study/' },
+      { text: 'ts封装axios', link: '/ts/chapter1/' },
+      // { text: 'react', link: '/react_study/' },
       { text: 'webpack', link: '/webpack/' },
       { text: '数据可视化', link: '/datav_docs/' },
 
@@ -42,6 +43,121 @@ module.exports = {
     ],
     sidebar: {
       // collapsable: false,
+      '/web/': [
+        '/web/apply、call、bind的区别',
+        {
+          title: '正则表达式',
+          collapsable: false,
+          path: '/web/regular-expression',
+        },
+      ],
+      '/ts/': [
+        {
+          title: '初识 TypeScript',
+          collapsable: false,
+          children: [
+            ['/ts/chapter1/', 'Introduction'],
+            '/ts/chapter1/install',
+            '/ts/chapter1/start'
+          ]
+        },
+        {
+          title: 'TypeScript 常用语法',
+          collapsable: false,
+          children: [
+            '/ts/chapter2/type',
+            '/ts/chapter2/declare',
+            '/ts/chapter2/interface',
+            '/ts/chapter2/class',
+            '/ts/chapter2/function',
+            '/ts/chapter2/generic',
+            '/ts/chapter2/inference',
+            '/ts/chapter2/advance'
+          ]
+        },
+        {
+          title: 'ts-axios 项目初始化',
+          collapsable: false,
+          children: ['/ts/chapter3/require', '/ts/chapter3/init', '/ts/chapter3/base']
+        },
+        {
+          title: 'ts-axios 基础功能实现',
+          collapsable: false,
+          children: [
+            '/ts/chapter4/url',
+            '/ts/chapter4/data',
+            '/ts/chapter4/header',
+            '/ts/chapter4/response',
+            '/ts/chapter4/response-header',
+            '/ts/chapter4/response-data'
+          ]
+        },
+        {
+          title: 'ts-axios 异常情况处理',
+          collapsable: false,
+          children: ['/ts/chapter5/error', '/ts/chapter5/enhance']
+        },
+        {
+          title: 'ts-axios 接口扩展',
+          collapsable: false,
+          children: ['/ts/chapter6/extend', '/ts/chapter6/overload', '/ts/chapter6/generic']
+        },
+        {
+          title: 'ts-axios 拦截器实现',
+          collapsable: false,
+          children: ['/ts/chapter7/interceptor']
+        },
+        {
+          title: 'ts-axios 配置化实现',
+          collapsable: false,
+          children: ['/ts/chapter8/merge', '/ts/chapter8/transform', '/ts/chapter8/create']
+        },
+        {
+          title: 'ts-axios 取消功能实现',
+          collapsable: false,
+          children: ['/ts/chapter9/cancel']
+        },
+        {
+          title: 'ts-axios 更多功能实现',
+          collapsable: false,
+          children: [
+            '/ts/chapter10/withCredentials',
+            '/ts/chapter10/xsrf',
+            '/ts/chapter10/upload-download',
+            '/ts/chapter10/auth',
+            '/ts/chapter10/validateStatus',
+            '/ts/chapter10/paramsSerializer',
+            '/ts/chapter10/baseURL',
+            '/ts/chapter10/static'
+          ]
+        },
+        {
+          title: 'ts-axios 单元测试',
+          collapsable: false,
+          children: [
+            '/ts/chapter11/preface',
+            '/ts/chapter11/jest',
+            '/ts/chapter11/helpers',
+            '/ts/chapter11/requests',
+            '/ts/chapter11/headers',
+            '/ts/chapter11/instance',
+            '/ts/chapter11/interceptor',
+            '/ts/chapter11/mergeConfig',
+            '/ts/chapter11/cancel',
+            '/ts/chapter11/more'
+          ]
+        },
+        {
+          title: 'ts-axios 部署与发布',
+          collapsable: false,
+          children: ['/ts/chapter12/build-deploy', '/ts/chapter12/demo']
+        },
+        {
+          title: '课程总结',
+          collapsable: false,
+          children: ['/ts/chapter13/summary']
+        }
+      ],
       '/frontend/': [
         '/frontend/', 
         {
@@ -119,6 +235,7 @@ module.exports = {
             '/algorithm/js/js',
             '/algorithm/js/反转单词',
             '/algorithm/js/计数二进制子串',
+            '/algorithm/js/电话号码的字母组合',
           ]
         },
         {
