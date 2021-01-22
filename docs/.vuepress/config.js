@@ -3,6 +3,7 @@ const fs = require('fs')
 // function resolve(dir) {
 //   return path.join(__dirname, '..', dir)
 // }
+console.log(path.join(__dirname, '../', '../', 'docs', 'img'))
 module.exports = {
   port: '8900',
   title: 'junjun的小站',
@@ -14,8 +15,11 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@': path.join(__dirname, './', 'public')
-        // '@': path.join(__dirname, '../', '../', 'docs')
+        '@': path.join(__dirname, './', 'public'),
+        '$': path.join(__dirname, './', 'img'),
+        // '$': path.join(__dirname, '../', 'img')
+        // '@/img': '../img/'
+        // '@/img': path.join(__dirname, '../', '../', 'docs', 'img')
       }
     }
   },
@@ -25,6 +29,7 @@ module.exports = {
     displayAllHeaders: true,
     nav: [
       { text: '大前端', link: '/frontend/' },
+      { text: 'java', link: '/java/' },
       { text: 'vue3', link: '/vue3/' },
       { text: 'web', link: '/web/apply、call、bind的区别' },
       { text: '数据结构和算法', link: '/algorithm/' },
@@ -48,8 +53,8 @@ module.exports = {
         {
           title: '正则表达式',
           collapsable: false,
-          path: '/web/regular-expression',
-        },
+          path: '/web/regular-expression'
+        }
       ],
       '/ts/': [
         {
@@ -78,7 +83,11 @@ module.exports = {
         {
           title: 'ts-axios 项目初始化',
           collapsable: false,
-          children: ['/ts/chapter3/require', '/ts/chapter3/init', '/ts/chapter3/base']
+          children: [
+            '/ts/chapter3/require',
+            '/ts/chapter3/init',
+            '/ts/chapter3/base'
+          ]
         },
         {
           title: 'ts-axios 基础功能实现',
@@ -100,7 +109,11 @@ module.exports = {
         {
           title: 'ts-axios 接口扩展',
           collapsable: false,
-          children: ['/ts/chapter6/extend', '/ts/chapter6/overload', '/ts/chapter6/generic']
+          children: [
+            '/ts/chapter6/extend',
+            '/ts/chapter6/overload',
+            '/ts/chapter6/generic'
+          ]
         },
         {
           title: 'ts-axios 拦截器实现',
@@ -110,7 +123,11 @@ module.exports = {
         {
           title: 'ts-axios 配置化实现',
           collapsable: false,
-          children: ['/ts/chapter8/merge', '/ts/chapter8/transform', '/ts/chapter8/create']
+          children: [
+            '/ts/chapter8/merge',
+            '/ts/chapter8/transform',
+            '/ts/chapter8/create'
+          ]
         },
         {
           title: 'ts-axios 取消功能实现',
@@ -158,15 +175,41 @@ module.exports = {
           children: ['/ts/chapter13/summary']
         }
       ],
+      '/java/': [
+        '/java/',
+        {
+          title: '01-java基础语法',
+          collapsable: false,
+          path: '/java/01-java基础语法/01-hello-Java',
+          children: [
+            '/java/01-java基础语法/01-hello-Java',
+            '/java/01-java基础语法/02-Java常量与变量',
+            '/java/01-java基础语法/03-Java运算符',
+            '/java/01-java基础语法/04-Java循环结构',
+            '/java/01-java基础语法/05-Java一维数组',
+            '/java/01-java基础语法/06-Java方法',
+            '/java/01-java基础语法/07-Java面向对象',
+            '/java/01-java基础语法/08-Java封装',
+            '/java/01-java基础语法/09-Java继承',
+            '/java/01-java基础语法/10-Java单例模式',
+            '/java/01-java基础语法/11-Java多态',
+            '/java/01-java基础语法/12-Java接口',
+            '/java/01-java基础语法/13-Java内部类',
+            '/java/01-java基础语法/14-Java异常',
+            '/java/01-java基础语法/15-Java包装类',
+            '/java/01-java基础语法/16-Java字符串',
+          ]
+        },
+      ],
       '/frontend/': [
-        '/frontend/', 
+        '/frontend/',
         {
           title: '02-前端框架分类及选型',
           collapsable: false,
           path: '/frontend/02-前端框架分类及选型/koa',
           children: [
             '/frontend/02-前端框架分类及选型/koa',
-            '/frontend/02-前端框架分类及选型/使用nodemailer配置邮件服务',
+            '/frontend/02-前端框架分类及选型/使用nodemailer配置邮件服务'
           ]
         },
         {
@@ -176,7 +219,7 @@ module.exports = {
           children: [
             '/frontend/03-企业标准的开发环境搭建/docker',
             '/frontend/03-企业标准的开发环境搭建/docker进阶',
-            '/frontend/03-企业标准的开发环境搭建/linux的简单介绍',
+            '/frontend/03-企业标准的开发环境搭建/linux的简单介绍'
           ]
         },
         {
@@ -186,7 +229,7 @@ module.exports = {
           children: [
             '/frontend/04-必会的前端工程化工具/前端打包神器 webpack',
             '/frontend/04-必会的前端工程化工具/自动化工具 gulp',
-            '/frontend/04-必会的前端工程化工具/Yeoman创建自己的脚手架',
+            '/frontend/04-必会的前端工程化工具/Yeoman创建自己的脚手架'
           ]
         },
         {
@@ -199,6 +242,7 @@ module.exports = {
             '/frontend/05-NoSQL数据库的设计与集成/mongoose使用简介',
             '/frontend/05-NoSQL数据库的设计与集成/Redis认知与必备CLI命令',
             '/frontend/05-NoSQL数据库的设计与集成/Redis和Node集成与实践',
+            '/frontend/05-NoSQL数据库的设计与集成/Robo3T语法',
           ]
         },
         {
@@ -209,7 +253,7 @@ module.exports = {
             '/frontend/08-团队协作-版本管理/团队协作-版本管理',
             '/frontend/08-团队协作-版本管理/ESLint',
             '/frontend/08-团队协作-版本管理/git工具导学&git多密钥管理',
-            '/frontend/08-团队协作-版本管理/docker搭建gitlab平台',
+            '/frontend/08-团队协作-版本管理/docker搭建gitlab平台'
           ]
         },
         {
@@ -218,9 +262,9 @@ module.exports = {
           path: '/frontend/09-团队协作-自动化流程/jenkins安装及对接gitlab',
           children: [
             '/frontend/09-团队协作-自动化流程/jenkins安装及对接gitlab',
-            '/frontend/09-团队协作-自动化流程/Dockerfile简介及使用',
+            '/frontend/09-团队协作-自动化流程/Dockerfile简介及使用'
           ]
-        },
+        }
       ],
       '/algorithm/': [
         {
@@ -235,7 +279,7 @@ module.exports = {
             '/algorithm/js/js',
             '/algorithm/js/反转单词',
             '/algorithm/js/计数二进制子串',
-            '/algorithm/js/电话号码的字母组合',
+            '/algorithm/js/电话号码的字母组合'
           ]
         },
         {
@@ -328,4 +372,8 @@ function genSidebarConfig(dir, hasSub) {
     return item
   })
   return files
+}
+
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
 }

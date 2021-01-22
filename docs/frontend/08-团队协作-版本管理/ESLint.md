@@ -33,6 +33,8 @@ Successfully created .eslintrc.js file in /Users/lijunjun/MKW/big-front-end/ESLi
 
 ```shell
 npx eslint ./app.js
+# 检查src下的所有js文件
+npx eslint src/**/*.js
 ```
 
 [![rHAab8.png](https://s3.ax1x.com/2020/12/29/rHAab8.png)](https://imgchr.com/i/rHAab8)

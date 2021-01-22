@@ -1,0 +1,72 @@
+# Java方法
+
+### 方法介绍
+
+- 语法格式
+
+访问修饰符 返回类型 方法名(参数列表) {
+    方法体
+}
+
+```java
+// public static: 访问修饰符, 表示静态方法
+// void: 返回类型, void不返回任何类型的值
+// main: 方法名 
+// (String[] args): 字符串数组类型的参数
+public static void main(String[] args) {
+
+}
+```
+
+### 无参数无返回值
+
+```java
+public class MyMethods {
+  public static void main(String[] args) {
+    // 1.先用方法所在的类创建对象
+    // 2. 调用方法
+    MyMethods myMethod = new MyMethods(); // 创建一个myMethod类的对象
+    myMethod.printStar();
+    System.out.println("欢迎来到Java");
+    myMethod.printStar();
+  }
+  // 定义一个输出星号的方法
+  public void printStar() {
+    System.out.println("*****")
+  }
+}
+```
+
+### java方法重载
+
+> 方法名一样, 参数类型和个数不相同的方法就叫重载
+
+### 可变参数列表
+
+> 注意, 可变参数列表的方法, 在重载中执行顺序是最后一个
+
+```java
+public class MyMethods {
+  public static void main(String[] args) {
+    // 创建对象
+    MyMethods myMethods = new MyMethods();
+    myMethods.sum(1);
+    myMethods.sum(1, 2);
+    myMethods.sum(1, 2, 3);
+  }
+  
+  // 求和
+  // 注意, 可变参数要发放在最后一个参数, 否则会报错, 所以一个函数只能有一个可变参数列表
+  // 
+  public void sum(int... n) {
+    int sum = 0;
+    // 每次都从可变元素n中取出一个元素放进i中, 直到取完所有的参数就结束了
+    for(int i:n) {
+      sum += i;
+    }
+    System.out.println(sum);
+  }
+}
+```
+
+### javadoc生成注释文档

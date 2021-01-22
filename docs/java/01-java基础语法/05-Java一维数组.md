@@ -1,0 +1,79 @@
+# Java一维数组
+
+### 一维数组的应用
+
+```java
+public class ArrayDemo {
+  public static void main(String[] args) {
+    int[] intArray; // 声明一个整型数组
+    String[] strArray; // 声明一个字符串类型的数组
+    intArray = new int[5];
+    strArray = new String[10];
+
+    float[] floatArr = new float[4];
+
+    char[] charArray = {'a', 'b', 'c', 'd'};
+
+    System.out.println(intArray[1]); // 0
+    System.out.println(strArray[2]); // null
+    System.out.println(floatArr[3]); // 0.0
+    System.out.println(charArray);
+  }
+}
+```
+
+### 求一个数组的最大值
+
+```java
+public class Demo {
+  public static void main(String[] args) {
+    int[] a = {34, 56, 50, 89, 67};
+    int max = a[0];
+    for(int i = 1;i < a.length;i++) {
+      if (max < a[i]) {
+        max = a[i];
+      }
+    }
+    System.out.println(max);
+  }
+}
+```
+
+### 增强型for循环(个人感觉没软用)
+
+```java
+public class Demo {
+  public static void main(String[] args) {
+    int[] arr = {1,2,3,4,5};
+    for(int n:arr) {
+      System.out.println(n); // 输出数组的每一项
+    } 
+  }
+}
+```
+
+### 计算机经典之-冒泡排序
+
+
+```java
+public class Demo {
+  public static void main(String[] args) {
+    int[] a = {34, 53, 12, 32, 56, 17};
+    int temp;
+    for (int i = 0; i < a.length - 1; i++) {
+      // 内循环控制每趟顺序,
+      // 因为每次循环之后, 最后面的数排好了, 所以没必要在排了, 所以是a.length - i - 1
+      for(int j = 0;j < a.length - i - 1;j++) {
+        if (a[j] > a[j + 1]) {
+          temp = a[j];
+          a[j] = a[j + 1];
+          a[j + 1] = temp;
+        }
+      }
+    }
+    for(int n:a) {
+      System.out.print(n + "  ");
+    }
+  }
+}
+```

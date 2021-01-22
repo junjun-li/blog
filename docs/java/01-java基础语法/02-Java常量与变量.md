@@ -1,0 +1,97 @@
+# Java常量与变量
+
+### Java基本数据类型的范围
+
+![aWAokV.png](https://s1.ax1x.com/2020/08/07/aWAokV.png)
+
+### 整型字面值及变量声明
+
+ Java中有三种表示整数的方法: 十进制,八进制,十六进制
+
+ 如: 123, 023, 0x1357, 0x3c, 0x1abcl
+
+### 变量声明
+
+格式: 数据类型 变量名
+
+```java
+int n; 声明整型变量n
+long; 声明长整型变量count
+```
+
+### 赋值 "=" 赋值运算符
+
+```java
+int n; 声明整型变量n
+n = 3; 将3赋值给n
+
+声明长整型变量count 值为3
+long n = 3; 变量初始化
+```
+
+### 字符串定义 char 这个不叫字符串 暂时不知道叫啥
+
+```java
+// 要注意, 单引号只能表示一个字符串, 多个字符串需要使用双引号, 而且java要写分号, 太鸡巴扯淡
+public class CharDemo {
+  public static void main(String[] args) {
+    char a = 'a';
+    System.out.println("a="+a); // 输出a
+    char b = 65;
+    System.out.println("b="+b); // 输出A 依据ASCII码转换的 不能超过65535 否则要强转字符串
+  }
+}
+```
+
+### 布尔类型字面值
+
+```java
+public class BooleanDemo {
+  public static void main(String[] args) {
+    boolean b = true;
+  }
+}
+```
+
+### 字符串字面值
+
+```java
+public class StringDemo {
+  public static void main(String[] args) {
+    // 注意要使用双引号
+    String b = "";
+  }
+}
+```
+
+### Java中常见的转义字符
+
+![](https://img.mukewang.com/5ed1bbee0001068c05000479.jpg)
+
+### Java数据类型转换的基本概念
+
+![0WpLrV.png](https://s1.ax1x.com/2020/10/12/0WpLrV.png)
+
+强制类型转换
+
+![0W9lsP.png](https://s1.ax1x.com/2020/10/12/0W9lsP.png)
+
+### Java使用final定义常量
+
+```java
+public class StringDemo {
+  public static void main(String[] args) {
+    int m = 5;
+    final int n = 6;
+  }
+}
+```
+
+### 初始java的常见错误
+
+![0WCHBV.png](https://s1.ax1x.com/2020/10/12/0WCHBV.png)
+![0WCXh4.png](https://s1.ax1x.com/2020/10/12/0WCXh4.png)
+
+### 各种类型的字面值
+
+[![0WP0ET.png](https://s1.ax1x.com/2020/10/12/0WP0ET.png)](https://imgchr.com/i/0WP0ET)
