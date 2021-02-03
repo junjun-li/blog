@@ -29,6 +29,7 @@ module.exports = {
     displayAllHeaders: true,
     nav: [
       { text: '大前端', link: '/frontend/' },
+      { text: '设计模式', link: '/js设计模式/' },
       { text: 'java', link: '/java/' },
       { text: 'vue3', link: '/vue3/' },
       { text: 'web', link: '/web/apply、call、bind的区别' },
@@ -48,6 +49,14 @@ module.exports = {
     ],
     sidebar: {
       // collapsable: false,
+      '/js设计模式/': [
+        '/js设计模式/',
+        {
+          title: '01-面向对象',
+          collapsable: false,
+          path: '/js设计模式/01-面向对象'
+        }
+      ],
       '/web/': [
         '/web/apply、call、bind的区别',
         {
