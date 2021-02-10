@@ -35,7 +35,7 @@ module.exports = {
       { text: 'web', link: '/web/apply、call、bind的区别' },
       { text: '数据结构和算法', link: '/algorithm/' },
       { text: 'ts封装axios', link: '/ts/chapter1/' },
-      // { text: 'react', link: '/react_study/' },
+      { text: 'react', link: '/react/' },
       { text: 'webpack', link: '/webpack/' },
       { text: '数据可视化', link: '/datav_docs/' },
 
@@ -54,8 +54,23 @@ module.exports = {
         {
           title: '01-面向对象',
           collapsable: false,
-          path: '/js设计模式/01-面向对象'
-        }
+          path: '/js设计模式/01-面向对象',
+        },
+        {
+          title: '02-设计原则',
+          collapsable: false,
+          path: '/js设计模式/02-设计原则',
+        },
+        {
+          title: '03-工厂模式',
+          collapsable: false,
+          path: '/js设计模式/03-工厂模式',
+        },
+        {
+          title: '04-单例模式',
+          collapsable: false,
+          path: '/js设计模式/04-单例模式',
+        },
       ],
       '/web/': [
         '/web/apply、call、bind的区别',
@@ -303,36 +318,17 @@ module.exports = {
         '/vue3/vue3-project',
         '/vue3/vue3-component'
       ],
-      // '/react_study/': [
-      //   '/react_study/',
-      //   {
-      //     collapsable: false,
-      //     children: ['/react_study/React']
-      //   },
-      //   {
-      //     collapsable: true,
-      //     children: ['/react_study/redux']
-      //   },
-      //   // 这玩意没学
-      //   {
-      //     collapsable: false,
-      //     children: ['/react_study/mobx']
-      //   },
-      //   {
-      //     collapsable: false,
-      //     children: ['/react_study/Next']
-      //   },
-      //   {
-      //     title: 'XueCheng-Online',
-      //     collapsable: false,
-      //     children: [
-      //       '/react_study/01项目说明',
-      //       '/react_study/02框架搭建',
-      //       '/react_study/03学生端功能实现',
-      //       '/react_study/05注册功能'
-      //     ]
-      //   }
-      // ],
+      '/react/': [
+        '/react/',
+        {
+          title: 'react-hooks基础知识',
+          collapsable: false,
+          path: '/react/01-react-base',
+          children: [
+            '/react/01-react-base',
+          ]
+        },
+      ],
       '/markdown/': ['/markdown/'],
       '/interview/': ['/interview/'],
       '/webpack/': [

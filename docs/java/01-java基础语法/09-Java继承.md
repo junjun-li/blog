@@ -126,6 +126,10 @@ public class Dog extends Animal {
 
 [![BAGh3d.png](https://s1.ax1x.com/2020/10/23/BAGh3d.png)](https://imgchr.com/i/BAGh3d)
 
+::: tip
+在进行方法重写的时候, 访问修饰符是可以变化的, 但是重写方法的修饰符, 访问范围需要大于父类方法
+:::
+
 ## 访问修饰符
 
 ### private 私有属性
@@ -138,7 +142,7 @@ public class Dog extends Animal {
 
 ### protected
 
-允许在当前类、同包子类/非子类、跨包子类调用; 跨包非子类不允许访问 
+允许在当前类、同包子类/非子类、跨包子类调用; 跨包非子类不允许访问
 
 ### 默认
 
@@ -153,7 +157,9 @@ public class Dog extends Animal {
 ## super 关键字
 
 > 子类构造默认调用父类的无参构造方法, 如果父类没有无参构造, 子类则会报错
+
 > 可以通过 super 关键字, 调用父类允许被访问的其他构造方法
+
 > super() 必须放在子类 `构造方法`中, 并且放在子类构造方法的第一行
 
 - super 关键字的作用
@@ -188,29 +194,59 @@ public class Dog extends Animal {
 
 - 进行对象的比较, 如果指向同一个地址, 返回 true, 反之返回 false
 
+- 子类可以通过重写 equals 方法的形式, 改变比较的内容
+
+```java
+class Test {
+  public boolean equals(Animal obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (this.getName().equals(obj.getName()) && (this.getMonth() == obj.getMonth())) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+```
+
 ### Object.toString
 
 - 输出对象名的时候, 会默认调用 toString 方法, 打印`包名@内存位置的哈希值`
 
-## final
+## final 关键字
 
-> 不能用来修饰构造方法
+有些时候, 并不希望这个类被继承, 被重写, 这个变量的值被修改, 这时候就要使用`final`关键字了
+
+::: tip
+不能用来修饰构造方法
+:::
 
 - final 加在 class 前面
 
-  > 表示该类没有子类, 如果有子类继承则会报错
+表示该类没有子类, 如果有子类继承则会报错
 
 - final 加在方法前面
 
-  > 表示该方法不能被子类重写, 但是可以被子类使用
+表示该方法不能被子类重写, 但是可以被子类使用
 
 - final 加在局部变量前面
 
-  > 表示是一个常量, 不可以修改(可以先定义,在赋值, 只能赋值一次)
+表示是一个常量, 不可以修改(可以先定义,在赋值, 只能赋值一次)
 
 - final 如果来修饰成员的属性
 
-  > 只能在`构造方法`或者`构造代码`块进行赋值 或者定义的时候就赋值
+只能在`构造方法`或者`构造代码`块进行赋值 或者定义的时候就赋值
 
 - final 如果用来修饰引用类型的
-  > 可以修改其属性, 但是不可以修改其引用地址
+
+可以修改其属性, 但是不可以修改其引用地址
+
+## 注解(标记)
+
+可以声明在包, 类, 属性, 方法, 局部变量, 方法参数的前面, 用来对这些元素进行说明, 注释
+
+### @Override
+
+表示这是一个合法的重写方法
