@@ -1,4 +1,4 @@
-# React
+# React新特性
 
 ## Context 实现跨层级的组件数据传递
 
@@ -222,4 +222,80 @@ class LazyDemo extends Component {
 }
 
 export default LazyDemo
+```
+
+## memo 优化性能
+
+[react-memo](https://zh-hans.reactjs.org/docs/react-api.html#reactmemo)
+
+如果你的组件在相同 props 的情况下渲染相同的结果，那么你可以通过将其包装在 React.memo 中调用，以此通过记忆组件渲染结果的方式来提高组件的性能表现。这意味着在这种情况下，React 将跳过渲染组件的操作并直接复用最近一次渲染的结果。
+
+```js
+import React, { Component, PureComponent, memo } from 'react'
+
+// PureComponent: react提供了简单的对比算法 如果传入的属性值不变, 就不会触发render函数重新渲染
+
+// class Foo extends PureComponent {
+//   // 这个函数返回true, 就会执行render函数, 否则不执行
+//   // shouldComponentUpdate (nextProps, nextState, nextContext) {
+//   //   if (nextProps.name === this.props.name) {
+//   //     return false
+//   //   }
+//   //   return true
+//   // }
+//
+//   render () {
+//     console.log('Foo render')
+//     return null
+//   }
+// }
+
+// 不更新
+const Foo = memo(function Foo(props) {
+  console.log(props)
+  return (
+    <div>
+      <div>{props.person.age}</div>
+      <div>{props.count}</div>
+    </div>
+  )
+})
+
+// 更新
+// function Foo(props) {
+//   return <div>{props.person.age}</div>
+// }
+
+class Memo extends Component {
+  state = {
+    count: 0,
+    person: {
+      name: 'zs',
+      age: 18
+    }
+  }
+
+  render() {
+    const person = this.state.person
+    const count = this.state.count
+    return (
+      <div>
+        <button
+          onClick={() => {
+            person.age++
+            this.setState({
+              count: this.state.count + 1,
+              person: this.state.person
+            })
+          }}
+        >
+          点击修改
+        </button>
+        <Foo person={person} count={count} />
+      </div>
+    )
+  }
+}
+
+export default Memo
 ```

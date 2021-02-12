@@ -6,9 +6,9 @@
 
 这里有大量算法和数据结构的 Java 和 JavaScript 实现
 
-![](~@/algorithm/1607006633246.png)
+<!-- ![](~@/algorithm/1607006633246.png)
 
-<img src="~@/algorithm/1607006633246.png">
+<img src="~@/algorithm/1607006633246.png"> -->
 
 <!-- <img src="~$algorithm/1607006633246.png"> -->
 

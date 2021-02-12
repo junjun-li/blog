@@ -1,16 +1,32 @@
-# Java多态
+# Java 多态
 
 ## 什么是多态
 
 - 生活中
-> 如按下键盘的F1, 在不同的应用下面会有不同的反应, 这就是多态
+
+如按下键盘的 F1, 在不同的应用下面会有不同的反应, 这就是多态
 
 - 程序设计中
-> 意味着允许不同类的对象对同意消息做出不同的响应
+
+意味着允许不同类的对象对同意消息做出不同的响应
+
+- 多态的必要条件
+
+1. 满足继承关系
+2. 父类引用指向子类对象
 
 ## 向上转型以及向下转型
-- 向上转型: 父类引用指向具体的子类实例, 小类转换大类
+
+- 向上转型(隐式转型, 自动转型)
+
+父类引用指向具体的子类实例, 小类转换大类
+
+:::tip 提示
+向上转型, 可以调用子类重写父类的方法, 以及父类派生的方法, 子类本身的方法就无法使用了
+:::
+
 - 向下转型: 父类引用转换成子类引用, 大类转小类
+
 ### 向上转型语法及用处
 
 > 即父类引用指向子类实例化对象, 也称之为自动转型或隐式转型
@@ -32,13 +48,14 @@ public class Test {
 }
 ```
 
-此时, two只能访问**子类继承**或者**重写父类**的方法, 但是不能访问Cat自己的方法了
+此时, two 只能访问**子类继承**或者**重写父类**的方法, 但是不能访问 Cat 自己的方法了
 
 ### 向上转型的有什么用处？直接创建子类对象不是更方便？
 
-> 如果需要设置方法实现对各各子类eat方法的调用
+> 如果需要设置方法实现对各各子类 eat 方法的调用
 
-- Person类
+- Person 类
+
 ```java
 public class Person {
   public void eat() {
@@ -47,7 +64,8 @@ public class Person {
 }
 ```
 
-- Chinese类
+- Chinese 类
+
 ```java
 public class Chinese extends Person {
   public void eat() {
@@ -59,7 +77,8 @@ public class Chinese extends Person {
 }
 ```
 
-- French类
+- French 类
+
 ```java
 public class French extends Person {
   public void eat() {
@@ -68,13 +87,14 @@ public class French extends Person {
 }
 ```
 
-- PersonTest运行
+- PersonTest 运行
+
 ```java
 public class PersonTest {
   public void eatTest(Person person) {
     person.eat();
   }
-  
+
   // public void eatTest(Chinese ch) {
   //   ch.eat();
   // }
@@ -86,7 +106,7 @@ public class PersonTest {
   // public void eatTest(French ch) {
   //   ch.eat();
   // }
-  
+
   public static void main(String[] args) {
     // Person chine = new Chinese();
     // chine.eat();
@@ -98,7 +118,7 @@ public class PersonTest {
 }
 ```
 
-> 由上述代码demo可以清晰看出, 以后无论增加多少**人的类**, eatTest都不需要重载了
+> 由上述代码 demo 可以清晰看出, 以后无论增加多少**人的类**, eatTest 都不需要重载了
 
 ### 为什么需要向下转型，直接实例化子类不是更简单？
 
@@ -106,7 +126,8 @@ public class PersonTest {
 > 因此,统筹在向下转型前需要先进行向上转型
 > 向下转型通常也会结合`instanceof运算符`一起使用
 
-此时如需在测试类eatTest方法中，修改eatTest ，实现针对传入不同的参数分别调用各自独立方法，则可以参考如下代码
+此时如需在测试类 eatTest 方法中，修改 eatTest ，实现针对传入不同的参数分别调用各自独立方法，则可以参考如下代码
+
 ```java
 public class PersonTest {
   public void eatTest(Person person) {
@@ -125,18 +146,19 @@ public class PersonTest {
   }
 }
 ```
+
 由此可见，借由向下转型，可以在灵活应用多态的基础上，同时兼顾子类的独有性，相较于直接创建子类实例，提高了代码加灵活性。
 
-### instanceof运算符
+### instanceof 运算符
+
 > 对象 => 类
-> A instanceof B语句表示左边对象引用类型是否可满足右边类型实例特征
+> A instanceof B 语句表示左边对象引用类型是否可满足右边类型实例特征
 > 判断对象是否是类的实例
 > 可以提高向下转型的安全性
 
-
 ## abstract 抽象类
 
-当一个类加上**abstract**关键字之后, 这个类就不能使用new来实例化了
+当一个类加上**abstract**关键字之后, 这个类就不能使用 new 来实例化了
 但是可以通过向上转型, 指向子类实例
 
 ## abstract 抽象方法

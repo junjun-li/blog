@@ -321,11 +321,67 @@ module.exports = {
       '/react/': [
         '/react/',
         {
-          title: 'react-hooks基础知识',
+          title: 'react-base',
           collapsable: false,
-          path: '/react/01-react-base',
+          path: '/react/base/01-react基础',
           children: [
-            '/react/01-react-base',
+            {
+              title: '01-react基础',
+              collapsable: false,
+              path: '/react/base/01-react基础'
+            },
+            {
+              title: '02-JSX笔记',
+              collapsable: false,
+              path: '/react/base/02-JSX笔记'
+            },
+            {
+              title: '03-组件基础',
+              collapsable: false,
+              path: '/react/base/03-组件基础'
+            },
+            {
+              title: '04-组件通讯',
+              collapsable: false,
+              path: '/react/base/04-组件通讯'
+            },
+            {
+              title: '05-组件生命周期与高阶组件',
+              collapsable: false,
+              path: '/react/base/05-组件生命周期与高阶组件'
+            },
+            {
+              title: '06-react原理解密',
+              collapsable: false,
+              path: '/react/base/06-react原理解密'
+            },
+            {
+              title: '07-react路由',
+              collapsable: false,
+              path: '/react/base/07-react路由'
+            },
+            {
+              title: '08-redux笔记',
+              collapsable: false,
+              path: '/react/base/08-redux笔记'
+            },
+          ]
+        },
+        {
+          title: 'react-hooks重构旅游电商网站火车票',
+          collapsable: false,
+          path: '/react/01-react新特性',
+          children: [
+            {
+              title: '01-react新特性',
+              collapsable: false,
+              path: '/react/01-react新特性'
+            },
+            {
+              title: '02-React颠覆性新特性Hooks',
+              collapsable: false,
+              path: '/react/02-react-hooks'
+            },
           ]
         },
       ],
