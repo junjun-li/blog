@@ -61,7 +61,7 @@ public class PersonTest {
 1. 定义在方法内部, 作用范围也在方法内
 2. 和方法内部成员规则一样, class前面不能添加 public,private,protected,static 关键字
 3. 类中不能包含静态成员
-4 类中可以包含final,abstract修饰的成员
+4. 类中可以包含final,abstract修饰的成员
 
 ## 匿名内部类
 
