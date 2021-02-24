@@ -1,6 +1,10 @@
-# Java字符串
+# Java 字符串
 
-## 字符串和byte数组之间的转换
+[![yocgl8.png](https://s3.ax1x.com/2021/02/21/yocgl8.png)](https://imgchr.com/i/yocgl8)
+
+## 字符串和 byte 数组之间的转换
+
+[![yogfgK.png](https://s3.ax1x.com/2021/02/21/yogfgK.png)](https://imgchr.com/i/yogfgK)
 
 ```java
 class Test {
@@ -17,9 +21,39 @@ class Test {
 }
 ```
 
-## ==和equals的区别
+## ==和 equals 的区别
 
-> equals 比较的是内容是否相同
-> == 比较的是地址是否相同
+equals 比较的是内容是否相同
+
+== 比较的是地址是否相同
 
 [![BwyaA1.png](https://s1.ax1x.com/2020/11/01/BwyaA1.png)](https://imgchr.com/i/BwyaA1)
+
+## String 和 StringBuilder 的区别
+
+:::tip 区别
+String 具有不可变性, 而 StringBuilder 不具备, 所以当频繁操作字符串时, 使用 StringBuilder
+:::
+
+## StringBuilder 的常用方法
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    StringBuilder str1 = new StringBuilder("你好");
+    str1.append(",");
+    str1.append("junjun");
+    System.out.println(str1);
+
+    // 将字符串变成 你好,junjun
+    // insert: 插入指定字符串
+    // System.out.println(str1.delete(2, str1.length()).insert(2, ",JUNJUN"));
+
+    // replace: 替换
+    System.out.println(str1.replace(2, str1.length(), ",JUNJUN"));
+
+    // 取出 你好 字符串
+    System.out.println(str1.substring(0, 2));
+  }
+}
+```

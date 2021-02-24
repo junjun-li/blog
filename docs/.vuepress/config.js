@@ -16,7 +16,7 @@ module.exports = {
     resolve: {
       alias: {
         '@': path.join(__dirname, './', 'public'),
-        '$': path.join(__dirname, './', 'img'),
+        $: path.join(__dirname, './', 'img')
         // '$': path.join(__dirname, '../', 'img')
         // '@/img': '../img/'
         // '@/img': path.join(__dirname, '../', '../', 'docs', 'img')
@@ -31,6 +31,7 @@ module.exports = {
       { text: '大前端', link: '/frontend/' },
       { text: '设计模式', link: '/js设计模式/' },
       { text: 'java', link: '/java/' },
+      { text: 'python', link: '/python/' },
       { text: 'vue3', link: '/vue3/' },
       { text: 'web', link: '/web/apply、call、bind的区别' },
       { text: '数据结构和算法', link: '/algorithm/' },
@@ -48,29 +49,65 @@ module.exports = {
       }
     ],
     sidebar: {
+      '/python/': [
+        '/python/',
+        {
+          title: '01-基本数据类型',
+          collapsable: false,
+          path: '/python/01-基本数据类型/01-整数和浮点型',
+          children: [
+            {
+              title: '01-整数和浮点型',
+              collapsable: false,
+              path: '/python/01-基本数据类型/01-整数和浮点型'
+            },
+            {
+              title: '02-各进制的表示与转换',
+              collapsable: false,
+              path: '/python/01-基本数据类型/02-各进制的表示与转换',
+            },
+            {
+              title: '03-数字布尔类型与复数',
+              collapsable: false,
+              path: '/python/01-基本数据类型/03-数字布尔类型与复数'
+            },
+            
+          ]
+        }
+      ],
       // collapsable: false,
       '/js设计模式/': [
         '/js设计模式/',
         {
           title: '01-面向对象',
           collapsable: false,
-          path: '/js设计模式/01-面向对象',
+          path: '/js设计模式/01-面向对象'
         },
         {
           title: '02-设计原则',
           collapsable: false,
-          path: '/js设计模式/02-设计原则',
+          path: '/js设计模式/02-设计原则'
         },
         {
           title: '03-工厂模式',
           collapsable: false,
-          path: '/js设计模式/03-工厂模式',
+          path: '/js设计模式/03-工厂模式'
         },
         {
           title: '04-单例模式',
           collapsable: false,
-          path: '/js设计模式/04-单例模式',
+          path: '/js设计模式/04-单例模式'
         },
+        {
+          title: '05-适配器模式',
+          collapsable: false,
+          path: '/js设计模式/05-适配器模式'
+        },
+        {
+          title: '06-装饰器模式',
+          collapsable: false,
+          path: '/js设计模式/06-装饰器模式'
+        }
       ],
       '/web/': [
         '/web/apply、call、bind的区别',
@@ -222,8 +259,9 @@ module.exports = {
             '/java/01-java基础语法/14-Java异常',
             '/java/01-java基础语法/15-Java包装类',
             '/java/01-java基础语法/16-Java字符串',
+            '/java/01-java基础语法/17-Java-集合'
           ]
-        },
+        }
       ],
       '/frontend/': [
         '/frontend/',
@@ -266,7 +304,7 @@ module.exports = {
             '/frontend/05-NoSQL数据库的设计与集成/mongoose使用简介',
             '/frontend/05-NoSQL数据库的设计与集成/Redis认知与必备CLI命令',
             '/frontend/05-NoSQL数据库的设计与集成/Redis和Node集成与实践',
-            '/frontend/05-NoSQL数据库的设计与集成/Robo3T语法',
+            '/frontend/05-NoSQL数据库的设计与集成/Robo3T语法'
           ]
         },
         {
@@ -364,7 +402,7 @@ module.exports = {
               title: '08-redux笔记',
               collapsable: false,
               path: '/react/base/08-redux笔记'
-            },
+            }
           ]
         },
         {
@@ -381,9 +419,9 @@ module.exports = {
               title: '02-React颠覆性新特性Hooks',
               collapsable: false,
               path: '/react/02-react-hooks'
-            },
+            }
           ]
-        },
+        }
       ],
       '/markdown/': ['/markdown/'],
       '/interview/': ['/interview/'],
@@ -435,6 +473,6 @@ function genSidebarConfig(dir, hasSub) {
   return files
 }
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
