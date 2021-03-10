@@ -1,0 +1,257 @@
+# 集合排序
+
+## int 类型和 String 的排序
+
+使用`Collections.sort`进行集合的排序
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class intSort {
+  public static void main(String[] args) {
+    List<Integer> list = new ArrayList<Integer>();
+    list.add(4);
+    list.add(2);
+    list.add(1);
+    list.add(3);
+    list.add(5);
+    // 增强型for循环, 把list一一取出来放进n中
+    System.out.println("排序之前的数据");
+    for (int n : list) {
+      System.out.print(n + "  ");
+    }
+    System.out.println("排序之后的数据");
+    Collections.sort(list);
+    for (int n : list) {
+      System.out.print(n + "  ");
+    }
+
+    // 字符串根据ASCII码进行排序
+    List<String> StringList = new ArrayList<String>();
+    StringList.add("orange");
+    StringList.add("blue");
+    StringList.add("yellow");
+    StringList.add("gray");
+    // 增强型for循环, 把list一一取出来放进n中
+    System.out.println("排序之前的数据");
+    for (String str : StringList) {
+      System.out.print(str + "  "); // orange  blue  yellow  gray
+    }
+    System.out.println();
+    Collections.sort(StringList);
+    System.out.println("排序之后的数据");
+    for (String str : StringList) {
+      System.out.print(str + "  "); // blue  gray  orange  yellow
+    }
+  }
+}
+```
+
+## Comparator 接口(类的排序)
+
+创建一个类, 指定排序的依据(根据名字排序)
+
+```java
+package com.junjun.sort;
+
+import java.util.Comparator;
+
+public class NameComparator implements Comparator<Cat> {
+  @Override
+  public int compare(Cat o1, Cat o2) {
+    // 按照名字升序排序
+    String name1 = o1.getName();
+    String name2 = o2.getName();
+    int n = name1.compareTo(name2);
+    return n;
+  }
+}
+```
+
+创建一个类, 指定排序的依据(根据年纪排序)
+
+```java
+package com.junjun.sort;
+
+import java.util.Comparator;
+
+public class AgeComparator implements Comparator<Cat> {
+  public int compare(Cat c1, Cat c2) {
+    int age1 = c1.getMonth();
+    int age2 = c2.getMonth();
+    // 降序排序
+    // return age2 - age1;
+
+    // 升序
+    return age1 - age2;
+  }
+}
+
+```
+
+使用:
+
+```java
+package com.junjun.sort;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class CatTest {
+  public static void main(String[] args) {
+    // 按照名字升序排序
+    Cat huahua = new Cat("huahua", 5);
+    Cat fanfan = new Cat("fanfan", 10);
+    Cat maomao = new Cat("maomao", 3);
+
+    List<Cat> CatList = new ArrayList<Cat>();
+    CatList.add(huahua);
+    CatList.add(fanfan);
+    CatList.add(maomao);
+    System.out.println("排序前");
+    for (Cat cat : CatList) {
+      System.out.println(cat);
+    }
+
+    System.out.println("排序后 => 按名字");
+    Collections.sort(CatList, new NameComparator());
+    for (Cat cat : CatList) {
+      System.out.println(cat);
+    }
+
+    System.out.println("排序后 => 按年纪");
+    Collections.sort(CatList, new AgeComparator());
+    for (Cat cat : CatList) {
+      System.out.println(cat);
+    }
+
+  }
+}
+
+```
+
+## Comparable 接口排序
+
+:::tip
+这里就不需要多定义一个排序类名了
+:::
+
+```java
+package com.junjun.comparableDemo;
+
+public class Goods implements Comparable<Goods> {
+  private int id;
+  private String name;
+  private double price;
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public double getPrice() {
+    return price;
+  }
+
+  public void setPrice(double price) {
+    this.price = price;
+  }
+
+  @Override
+  public String toString() {
+    return "Goods{" +
+      "id=" + id +
+      ", name='" + name + '\'' +
+      ", price=" + price +
+      '}';
+  }
+
+  public Goods() {
+
+  }
+
+  public Goods(int id, String name, double price) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+  }
+
+  @Override
+  public int compareTo(Goods g) {
+    double price1 = this.getPrice();
+    double price2 = g.getPrice();
+    int n = new Double(price2 - price1).intValue();
+    return n;
+  }
+}
+
+```
+
+```java
+package com.junjun.comparableDemo;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class GoodsTest {
+  public static void main(String[] args) {
+    Goods g1 = new Goods(1, "手机", 2000);
+    Goods g2 = new Goods(2, "电视", 4000);
+    Goods g3 = new Goods(3, "洗衣机", 1000);
+
+    List<Goods> goodsList = new ArrayList<Goods>();
+
+    goodsList.add(g1);
+    goodsList.add(g2);
+    goodsList.add(g3);
+
+    System.out.println("排序前");
+    for (Goods goods : goodsList) {
+      System.out.println(goods);
+    }
+    Collections.sort(goodsList);
+
+    System.out.println("排序后");
+    for (Goods goods : goodsList) {
+      System.out.println(goods);
+    }
+  }
+}
+
+```
+
+## 关于 compareTo()方法
+
+在学习 Comparable 接口时，我们用到了 compareTo()方法，用于对对象属性进行比较，根据返回结果进行排序。那么基本数据类型的包装类和字符串也都有 compareTo()方法，下面分别来看一下：
+
+[![68Gxm9.png](https://s3.ax1x.com/2021/03/09/68Gxm9.png)](https://imgtu.com/i/68Gxm9)
+
+1. 基本数据类型以 Integer 为例，来看一下 Integer 类的 compareTo()方法
+
+[![68Y8C6.png](https://s3.ax1x.com/2021/03/09/68Y8C6.png)](https://imgtu.com/i/68Y8C6)
+
+2. String 的 compareTo()方法
+
+[![68YB5t.png](https://s3.ax1x.com/2021/03/09/68YB5t.png)](https://imgtu.com/i/68YB5t)
+
+
+## 总结
+
+[![68YoGV.png](https://s3.ax1x.com/2021/03/09/68YoGV.png)](https://imgtu.com/i/68YoGV)
+
+[![68tLSf.png](https://s3.ax1x.com/2021/03/09/68tLSf.png)](https://imgtu.com/i/68tLSf)

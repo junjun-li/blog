@@ -64,14 +64,13 @@ module.exports = {
             {
               title: '02-各进制的表示与转换',
               collapsable: false,
-              path: '/python/01-基本数据类型/02-各进制的表示与转换',
+              path: '/python/01-基本数据类型/02-各进制的表示与转换'
             },
             {
               title: '03-数字布尔类型与复数',
               collapsable: false,
               path: '/python/01-基本数据类型/03-数字布尔类型与复数'
-            },
-            
+            }
           ]
         }
       ],
@@ -259,7 +258,17 @@ module.exports = {
             '/java/01-java基础语法/14-Java异常',
             '/java/01-java基础语法/15-Java包装类',
             '/java/01-java基础语法/16-Java字符串',
-            '/java/01-java基础语法/17-Java-集合'
+            {
+              title: 'Java-集合',
+              collapsable: true,
+              path: '/java/01-java基础语法/17-java-集合',
+              children: [
+                '/java/01-java基础语法/17-java-集合/01-List集合',
+                '/java/01-java基础语法/17-java-集合/02-Set集合',
+                '/java/01-java基础语法/17-java-集合/03-Map集合',
+              ]
+            },
+            '/java/01-java基础语法/18-Java集合排序',
           ]
         }
       ],
