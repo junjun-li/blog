@@ -106,7 +106,17 @@ module.exports = {
           title: '06-装饰器模式',
           collapsable: false,
           path: '/js设计模式/06-装饰器模式'
-        }
+        },
+        {
+          title: '07-代理模式',
+          collapsable: false,
+          path: '/js设计模式/07-代理模式'
+        },
+        {
+          title: '08-外观模式',
+          collapsable: false,
+          path: '/js设计模式/08-外观模式'
+        },
       ],
       '/web/': [
         '/web/apply、call、bind的区别',
