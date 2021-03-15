@@ -117,6 +117,11 @@ module.exports = {
           collapsable: false,
           path: '/js设计模式/08-外观模式'
         },
+        {
+          title: '10-观察者模式',
+          collapsable: false,
+          path: '/js设计模式/10-观察者模式'
+        },
       ],
       '/web/': [
         '/web/apply、call、bind的区别',
