@@ -32,6 +32,7 @@ module.exports = {
       { text: '设计模式', link: '/js设计模式/' },
       { text: 'java', link: '/java/' },
       { text: 'python', link: '/python/' },
+      { text: 'vue2', link: '/vue2/' },
       { text: 'vue3', link: '/vue3/' },
       { text: 'web', link: '/web/apply、call、bind的区别' },
       { text: '数据结构和算法', link: '/algorithm/' },
@@ -286,6 +287,19 @@ module.exports = {
             '/java/01-java基础语法/18-Java集合排序',
           ]
         }
+      ],
+      '/vue2/': [
+        '/vue2/',
+        {
+          title: '01-准备工作',
+          collapsable: false,
+          path: '/vue2/01-prepare/01-flow',
+          children: [
+            '/vue2/01-prepare/01-flow',
+            '/vue2/01-prepare/02-directory',
+            '/vue2/01-prepare/03-build',
+          ]
+        },
       ],
       '/frontend/': [
         '/frontend/',
