@@ -6,8 +6,8 @@ const fs = require('fs')
 console.log(path.join(__dirname, '../', '../', 'docs', 'img'))
 module.exports = {
   port: '8900',
-  title: 'junjun的小站',
-  description: '描述',
+  title: '前端积累',
+  description: '种一棵树最好的时间是十年前，其次就是现在。',
   markdown: {
     // 代码显示行数
     lineNumbers: true
@@ -28,28 +28,31 @@ module.exports = {
     // 默认展开所有页面的标题链接
     displayAllHeaders: true,
     nav: [
+      // { text: '新概念', link: '/newConcept/' },
       { text: '大前端', link: '/frontend/' },
       { text: '设计模式', link: '/js设计模式/' },
       { text: 'java', link: '/java/' },
-      { text: 'python', link: '/python/' },
+      // { text: 'python', link: '/python/' },
       { text: 'vue2', link: '/vue2/' },
       { text: 'vue3', link: '/vue3/' },
-      { text: 'web', link: '/web/apply、call、bind的区别' },
-      { text: '数据结构和算法', link: '/algorithm/' },
+      // { text: 'web', link: '/web/apply、call、bind的区别' },
+      // { text: '数据结构和算法', link: '/algorithm/' },
       { text: 'ts封装axios', link: '/ts/chapter1/' },
       { text: 'react', link: '/react/' },
-      { text: 'webpack', link: '/webpack/' },
-      { text: '数据可视化', link: '/datav_docs/' },
+      { text: 'webpack', link: '/webpack/' }
+      // { text: 'interview', link: '/interview/' },
+      // { text: '数据可视化', link: '/datav_docs/' },
 
-      {
-        text: '了解更多',
-        items: [
-          { text: 'Markdown教程', link: '/markdown/' },
-          { text: '面试题', link: '/interview/' }
-        ]
-      }
+      // {
+      //   text: '了解更多',
+      //   items: [
+      //     { text: 'Markdown教程', link: '/markdown/' },
+      //     { text: '面试题', link: '/interview/' }
+      //   ]
+      // }
     ],
     sidebar: {
+      '/newConcept/': ['/newConcept/', '/newConcept/Lesson5'],
       '/python/': [
         '/python/',
         {
@@ -122,7 +125,7 @@ module.exports = {
           title: '10-观察者模式',
           collapsable: false,
           path: '/js设计模式/10-观察者模式'
-        },
+        }
       ],
       '/web/': [
         '/web/apply、call、bind的区别',
@@ -281,10 +284,10 @@ module.exports = {
               children: [
                 '/java/01-java基础语法/17-java-集合/01-List集合',
                 '/java/01-java基础语法/17-java-集合/02-Set集合',
-                '/java/01-java基础语法/17-java-集合/03-Map集合',
+                '/java/01-java基础语法/17-java-集合/03-Map集合'
               ]
             },
-            '/java/01-java基础语法/18-Java集合排序',
+            '/java/01-java基础语法/18-Java集合排序'
           ]
         }
       ],
@@ -297,9 +300,9 @@ module.exports = {
           children: [
             '/vue2/01-prepare/01-flow',
             '/vue2/01-prepare/02-directory',
-            '/vue2/01-prepare/03-build',
+            '/vue2/01-prepare/03-build'
           ]
-        },
+        }
       ],
       '/frontend/': [
         '/frontend/',
@@ -391,8 +394,10 @@ module.exports = {
       '/vue3/': [
         '/vue3/',
         '/vue3/vue3-basic',
-        '/vue3/vue3-project',
-        '/vue3/vue3-component'
+        '/vue3/01-propType',
+        '/vue3/02-.vue文件运行的原理'
+        // '/vue3/vue3-project',
+        // '/vue3/vue3-component'
       ],
       '/react/': [
         '/react/',
@@ -462,7 +467,12 @@ module.exports = {
         }
       ],
       '/markdown/': ['/markdown/'],
-      '/interview/': ['/interview/'],
+      '/interview/': [
+        '/interview/',
+        '/interview/01-html和css',
+        '/interview/02-js基础',
+        '/interview/03-vue'
+      ],
       '/webpack/': [
         '/webpack/',
         {
