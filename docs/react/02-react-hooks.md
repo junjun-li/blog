@@ -53,6 +53,7 @@ function EffectHooks(props) {
 
   // 相比于类组件实现的, hooks不在关心 componentDidMount 或是 componentDidUpdate
   // 使用useEffect统一在渲染之后调用
+  // 默认情况下，它在第一次渲染之后和每次更新之后都会执行。
   useEffect(() => {
     document.title = count.toString()
   })
@@ -71,7 +72,6 @@ function EffectHooks(props) {
   }, [])
 
   useEffect(() => {
-    //
     document.getElementById('size').addEventListener('click', onClick, false)
     return () => {
       document
@@ -362,5 +362,3 @@ export default CustomHooks
 不要在其他普通函数调用 Hook, Hook 函数的调用, 要清晰可辨, 这是为了防止在条件语句等地方使用 Hook
 
 ## Hooks 的常见问题
-
-

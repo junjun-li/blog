@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  function updateView() {
+    console.log('更新视图')
+  }
+
+  function defineReactive(target, key, value) {
+    // 深度监听
+    observer(value)
+
+    Object.defineProperty(target, key, {
+      get() {
+        return value
+      },
+      set(newVal) {
+        if (newVal !== value) {
+          // 深度监听: 设置新值的时候也要深度监听
+          observer(value)
+
+          // value, 是一直在闭包中的
+          // 再次get的时候也是最新的值
+          value = newVal
+          // 更新视图
+          updateView()
+        }
+      }
+    })
+  }
+
+  function observer(target) {
+    if (typeof target !== 'object' || target === null) {
+      return target
+    }
+
+    for (const key in target) {
+      defineReactive(target, key, target[key])
+    }
+  }
+
+  const data = {
+    name: 'zs',
+    age: 18,
+    info: {
+      address: '北京'
+    },
+    numList: [1, 2, 3, 4, 5]
+  }
+
+  observer(data)
+
+  // data.name = 'ls'
+  // data.age = 20
+
+  // // 深度监听
+  // data.info.address = '上海'
+
+
+  data.numList.push(6)
+</script>
