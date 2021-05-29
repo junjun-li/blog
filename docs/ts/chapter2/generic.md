@@ -88,7 +88,6 @@ function loggingIdentity<T>(arg: T[]): T[] {
 
 你可以这样理解 `loggingIdentity` 的类型：泛型函数 `loggingIdentity`，接收类型参数 `T` 和参数 `arg`，它是个元素类型是 `T` 的数组，并返回元素类型是`T` 的数组。 如果我们传入数字数组，将返回一个数字数组，因为此时 `T` 的的类型为 `number`。 这可以让我们把泛型变量 `T` 当做类型的一部分使用，而不是整个类型，增加了灵活性。
 
-
 ## 泛型类型
 
 上一节，我们创建了 `identity` 通用函数，可以适用于不同的类型。 在这节，我们研究一下函数本身的类型，以及如何创建泛型接口。
@@ -120,7 +119,7 @@ function identity<T>(arg: T): T {
   return arg
 }
 
-let myIdentity: {<T>(arg: T): T} = identity
+let myIdentity: { <T>(arg: T): T } = identity
 ```
 
 这引导我们去写第一个泛型接口了。我们把上面例子里的对象字面量拿出来做为一个接口：
@@ -137,8 +136,7 @@ function identity<T>(arg: T): T {
 let myIdentity: GenericIdentityFn = identity
 ```
 
-我们甚至可以把泛型参数当作整个接口的一个参数。 这样我们就能清楚的知道使用的具体是哪个泛型类型（比如： `Dictionary<string>` 而不只是` Dictionary`）。这样接口里的其它成员也能知道这个参数的类型了。
-
+我们甚至可以把泛型参数当作整个接口的一个参数。 这样我们就能清楚的知道使用的具体是哪个泛型类型（比如： `Dictionary<string>` 而不只是`Dictionary`）。这样接口里的其它成员也能知道这个参数的类型了。
 
 ```typescript
 interface GenericIdentityFn<T> {
@@ -169,7 +167,7 @@ class GenericNumber<T> {
 let myGenericNumber = new GenericNumber<number>()
 myGenericNumber.zeroValue = 0
 myGenericNumber.add = function(x, y) {
-  return x + y 
+  return x + y
 }
 ```
 
@@ -178,7 +176,7 @@ myGenericNumber.add = function(x, y) {
 ```typescript
 let stringNumeric = new GenericNumber<string>()
 stringNumeric.zeroValue = ''
-stringNumeric.add = function(x, y) { 
+stringNumeric.add = function(x, y) {
   return x + y
 }
 
@@ -218,13 +216,13 @@ function loggingIdentity<T extends Lengthwise>(arg: T): T {
 现在这个泛型函数被定义了约束，因此它不再是适用于任意类型：
 
 ```typescript
-loggingIdentity(3);  // Error
+loggingIdentity(3) // Error
 ```
 
 我们需要传入符合约束类型的值，必须包含必须的属性：
 
 ```typescript
-loggingIdentity({length: 10, value: 3}) // OK
+loggingIdentity({ length: 10, value: 3 }) // OK
 ```
 
 ### 在泛型约束中使用类型参数
@@ -232,13 +230,92 @@ loggingIdentity({length: 10, value: 3}) // OK
 你可以声明一个类型参数，且它被另一个类型参数所约束。 比如，现在我们想要用属性名从对象里获取这个属性。 并且我们想要确保这个属性存在于对象 `obj` 上，因此我们需要在这两个类型之间使用约束。
 
 ```typescript
-function getProperty<T, K extends keyof T> (obj: T, key: K ) {
+function getProperty<T, K extends keyof T>(obj: T, key: K) {
   return obj[key]
 }
 
-let x = {a: 1, b: 2, c: 3, d: 4}
+let x = { a: 1, b: 2, c: 3, d: 4 }
 
 getProperty(x, 'a') // okay
 getProperty(x, 'm') // error
 ```
 
+### 泛型示例
+
+```ts
+// 泛型基础
+function echo<T>(arg: T): T {
+  return arg
+}
+
+const result = echo(true)
+
+// 交换两个数组的值
+function swap<T, U>(tuple: [T, U]): [U, T] {
+  return [tuple[1], tuple[0]]
+}
+const result2 = swap(['string', 123])
+
+function echoWithArr<T>(arg: T[]): T[] {
+  console.log(arg.length)
+  return arg
+}
+const arr = echoWithArr([1, 2, 3])
+
+// 在函数参数上使用泛型
+interface IWithLength {
+  length: number
+}
+
+function echoWithLength<T extends IWithLength>(arg: T): T {
+  console.log(arg.length)
+  return arg
+}
+
+const str = echoWithLength('str')
+const obj = echoWithLength({ length: 10, width: 10 })
+const arr2 = echoWithLength([1, 2, 3])
+
+// 泛型类
+class Queue<T> {
+  private data = []
+  push(item: T) {
+    return this.data.push(item)
+  }
+  pop(): T {
+    return this.data.shift()
+  }
+}
+
+const queue = new Queue<number>()
+queue.push(1)
+console.log(queue.pop().toFixed())
+
+const queue2 = new Queue<string>()
+queue2.push('str')
+console.log(queue2.pop().length)
+
+// 泛型接口
+interface KeyPair<T, U> {
+  key: T
+  value: U
+}
+let kp1: KeyPair<number, string> = { key: 123, value: 'str' }
+let kp2: KeyPair<string, number> = { key: 'test', value: 123 }
+
+let arr: number[] = [1, 2, 3]
+let arrTwo: Array<number> = [1, 2, 3]
+
+// 泛型接口描述函数
+interface IPlus<T> {
+  (a: T, b: T): T
+}
+function plus(a: number, b: number): number {
+  return a + b
+}
+function connect(a: string, b: string): string {
+  return a + b
+}
+const a: IPlus<number> = plus
+const b: IPlus<string> = connect
+```
