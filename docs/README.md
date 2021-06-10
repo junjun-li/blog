@@ -12,5 +12,5 @@ actionLink: /frontend/
 #   details: rty-vue-components 不定期更新~
 # - title: 书写语法-Markdown
 #   details: Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本具有一定的格式 https://www.jianshu.com/p/191d1e21f7ed
-footer: MIT Licensed | Copyright © 8102-present Evan You
+# footer: MIT Licensed | Copyright © 8102-present Evan You
 ---

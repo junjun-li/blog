@@ -35,21 +35,21 @@ module.exports = {
       // { text: 'python', link: '/python/' },
       { text: 'vue2', link: '/vue2/' },
       { text: 'vue3', link: '/vue3/' },
-      // { text: 'web', link: '/web/apply、call、bind的区别' },
-      // { text: '数据结构和算法', link: '/algorithm/' },
+      { text: 'web', link: '/web/apply、call、bind的区别' },
+      { text: '数据结构和算法', link: '/algorithm/' },
       { text: 'ts封装axios', link: '/ts/chapter1/' },
       { text: 'react', link: '/react/' },
-      { text: 'webpack', link: '/webpack/' }
-      // { text: 'interview', link: '/interview/' },
+      { text: 'webpack', link: '/webpack/' },
+      { text: 'interview', link: '/interview/' },
       // { text: '数据可视化', link: '/datav_docs/' },
 
-      // {
-      //   text: '了解更多',
-      //   items: [
-      //     { text: 'Markdown教程', link: '/markdown/' },
-      //     { text: '面试题', link: '/interview/' }
-      //   ]
-      // }
+      {
+        text: '了解更多',
+        items: [
+          // { text: 'Markdown教程', link: '/markdown/' },
+          { text: '面试题', link: '/interview/' }
+        ]
+      }
     ],
     sidebar: {
       '/newConcept/': ['/newConcept/', '/newConcept/Lesson5'],
@@ -395,9 +395,9 @@ module.exports = {
         '/vue3/',
         '/vue3/vue3-basic',
         '/vue3/01-propType',
-        '/vue3/02-.vue文件运行的原理'
-        // '/vue3/vue3-project',
-        // '/vue3/vue3-component'
+        '/vue3/02-.vue文件运行的原理',
+        '/vue3/vue3-project',
+        '/vue3/vue3-component'
       ],
       '/react/': [
         '/react/',
@@ -471,7 +471,55 @@ module.exports = {
         '/interview/',
         '/interview/01-html和css',
         '/interview/02-js基础',
-        '/interview/03-vue'
+        '/interview/03-vue',
+        {
+          title: '02-js基础',
+          collapsable: false,
+          path: '/interview/02-JS基础/01-变量类型和计算',
+          children: [
+            {
+              title: '变量类型和计算',
+              collapsable: false,
+              path: '/interview/02-JS基础/01-变量类型和计算'
+            },
+            {
+              title: '原型和原型链',
+              collapsable: false,
+              path: '/interview/02-JS基础/02-原型和原型链'
+            },
+            {
+              title: '继承',
+              collapsable: false,
+              path: '/interview/02-JS基础/03-继承'
+            },
+            {
+              title: '作用域和闭包',
+              collapsable: false,
+              path: '/interview/02-JS基础/03-作用域和闭包'
+            },
+            {
+              title: '异步和单线程-Promise',
+              collapsable: false,
+              path: '/interview/02-JS基础/04-异步和单线程'
+            },
+            {
+              title: '性能优化',
+              collapsable: false,
+              path: '/interview/02-JS基础/05-性能优化'
+            },
+            {
+              title: 'web安全',
+              collapsable: false,
+              path: '/interview/02-JS基础/06-web安全'
+            },
+            {
+              title: '浏览器的工作原理',
+              collapsable: false,
+              path: '/interview/02-JS基础/07-浏览器的工作原理'
+            }
+            
+          ]
+        }
       ],
       '/webpack/': [
         '/webpack/',

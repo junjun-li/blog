@@ -20,7 +20,7 @@ var age = 18
 let obj = {
   name: '李四',
   objAge: this.age,
-  myFunc: function (from, sex) {
+  myFunc: function(from, sex) {
     console.log(
       `我的名字叫${this.name}, 我今年${this.age}岁, 我来自${from}, 性别${sex}`
     )
@@ -140,9 +140,9 @@ function log() {
 ```js
 let foo = {
   bar: 1,
-  eventBind: function () {
+  eventBind: function() {
     let that = this
-    $('#app').on('click', function (e) {
+    $('#app').on('click', function(e) {
       console.log(that.bar) // 1
     })
   }
@@ -154,9 +154,9 @@ let foo = {
 ```js
 let foo = {
   bar: 1,
-  eventBind: function () {
+  eventBind: function() {
     $('#app')
-      .on('click', function (e) {
+      .on('click', function(e) {
         console.log(this.bar) // 1
       })
       .bind(this)
@@ -170,7 +170,7 @@ let foo = {
 再来一个 🌰
 
 ```js
-let bar = function () {
+let bar = function() {
   console.log(this.x)
 }
 var foo = {
@@ -188,7 +188,7 @@ bar.bind(foo)() // 3
 有个有趣的问题，如果连续 bind() 两次，亦或者是连续 bind() 三次那么输出的值是什么呢？像这样：
 
 ```js
-let bar = function () {
+let bar = function() {
   console.log(this.x)
 }
 let foo = {
@@ -203,7 +203,10 @@ func() //?
 let fiv = {
   x: 5
 }
-let func = bar.bind(foo).bind(sed).bind(fiv)
+let func = bar
+  .bind(foo)
+  .bind(sed)
+  .bind(fiv)
 func() //?
 ```
 
@@ -219,7 +222,7 @@ let obj = {
 }
 
 let foo = {
-  getX: function () {
+  getX: function() {
     return this.x
   }
 }
