@@ -519,6 +519,44 @@ module.exports = {
             }
             
           ]
+        },
+        {
+          title: '03-Vue原理',
+          collapsable: false,
+          path: '/interview/03-Vue原理/01-如何理解MVVM',
+          children: [
+            {
+              title: 'vue父子组件生命周期',
+              collapsable: false,
+              path: '/interview/03-Vue原理/01-vue父子组件生命周期'
+            },
+            {
+              title: '如何理解MVVM',
+              collapsable: false,
+              path: '/interview/03-Vue原理/01-如何理解MVVM'
+            },
+            {
+              title: '监听data变化的核心API是什么',
+              collapsable: false,
+              path: '/interview/03-Vue原理/02-监听data变化的核心API是什么'
+            },
+            {
+              title: '如何监听数组的变化',
+              collapsable: false,
+              path: '/interview/03-Vue原理/03-如何监听数组的变化'
+            },
+            {
+              title: '虚拟DOM',
+              collapsable: false,
+              path: '/interview/03-Vue原理/04-虚拟DOM'
+            },
+            {
+              title: 'Vue面试题讲解',
+              collapsable: false,
+              path: '/interview/03-Vue原理/Vue面试题讲解'
+            },
+            
+          ]
         }
       ],
       '/webpack/': [
