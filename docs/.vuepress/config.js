@@ -503,9 +503,14 @@ module.exports = {
               path: '/interview/02-JS基础/04-异步'
             },
             {
-              title: '异步-进阶',
+              title: '异步-Promise进阶',
               collapsable: false,
-              path: '/interview/02-JS基础/04-异步-进阶'
+              path: '/interview/02-JS基础/04-异步-Promise进阶'
+            },
+            {
+              title: '宏任务和微任务',
+              collapsable: false,
+              path: '/interview/02-JS基础/04-宏任务和微任务'
             },
             {
               title: '性能优化',
