@@ -470,8 +470,8 @@ module.exports = {
       '/interview/': [
         '/interview/',
         '/interview/01-html和css',
-        '/interview/02-js基础',
-        '/interview/03-vue',
+        // '/interview/02-js基础',
+        // '/interview/03-vue',
         {
           title: '02-js基础',
           collapsable: false,
@@ -498,9 +498,14 @@ module.exports = {
               path: '/interview/02-JS基础/03-作用域和闭包'
             },
             {
-              title: '异步和单线程-Promise',
+              title: '异步',
               collapsable: false,
-              path: '/interview/02-JS基础/04-异步和单线程'
+              path: '/interview/02-JS基础/04-异步'
+            },
+            {
+              title: '异步-进阶',
+              collapsable: false,
+              path: '/interview/02-JS基础/04-异步-进阶'
             },
             {
               title: '性能优化',
@@ -517,7 +522,6 @@ module.exports = {
               collapsable: false,
               path: '/interview/02-JS基础/07-浏览器的工作原理'
             }
-            
           ]
         },
         {
@@ -554,8 +558,7 @@ module.exports = {
               title: 'Vue面试题讲解',
               collapsable: false,
               path: '/interview/03-Vue原理/Vue面试题讲解'
-            },
-            
+            }
           ]
         }
       ],

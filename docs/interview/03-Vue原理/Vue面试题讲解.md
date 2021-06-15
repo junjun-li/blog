@@ -52,6 +52,54 @@
 
 ## 如何实现 v-model
 
+```js
+  <body>
+    <div id="app">
+      <p>{{msg}}</p>
+      <a-input v-model="msg"></a-input>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+  const AInput = Vue.component(`a-input`, {
+    template: `
+      <input
+        type="text"
+        :value="value"
+        @input="updateInput">
+    `,
+    props: {
+      value: String,
+      defaultValue: string
+    },
+    methods: {
+      updateInput (e) {
+        this.$emit('input', e.target.value)
+      }
+    }
+  })
+  let vm = new Vue({
+    el: '#app',
+    data () {
+      return {
+        msg: 'hello'
+      }
+    },
+    components: {
+      AInput
+    },
+
+    methods: {
+      onChange (val) {
+        console.log(val)
+      }
+    }
+  })
+  console.log(vm)
+  </script>
+```
+
 ## 何时使用异步加载组件
 
 - 加载大组件
