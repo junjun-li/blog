@@ -262,21 +262,21 @@ module.exports = {
           path: '/java/01-java基础语法/01-hello-Java',
           children: [
             '/java/01-java基础语法/01-hello-Java',
-            '/java/01-java基础语法/02-Java常量与变量',
-            '/java/01-java基础语法/03-Java运算符',
-            '/java/01-java基础语法/04-Java循环结构',
-            '/java/01-java基础语法/05-Java一维数组',
-            '/java/01-java基础语法/06-Java方法',
-            '/java/01-java基础语法/07-Java面向对象',
-            '/java/01-java基础语法/08-Java封装',
-            '/java/01-java基础语法/09-Java继承',
-            '/java/01-java基础语法/10-Java单例模式',
-            '/java/01-java基础语法/11-Java多态',
-            '/java/01-java基础语法/12-Java接口',
-            '/java/01-java基础语法/13-Java内部类',
-            '/java/01-java基础语法/14-Java异常',
-            '/java/01-java基础语法/15-Java包装类',
-            '/java/01-java基础语法/16-Java字符串',
+            '/java/01-java基础语法/02-常量与变量',
+            '/java/01-java基础语法/03-运算符',
+            '/java/01-java基础语法/04-循环结构',
+            '/java/01-java基础语法/05-一维数组',
+            '/java/01-java基础语法/06-方法',
+            '/java/01-java基础语法/07-面向对象',
+            '/java/01-java基础语法/08-封装',
+            '/java/01-java基础语法/09-继承',
+            '/java/01-java基础语法/10-单例模式',
+            '/java/01-java基础语法/11-多态',
+            '/java/01-java基础语法/12-接口',
+            '/java/01-java基础语法/13-内部类',
+            '/java/01-java基础语法/14-异常',
+            '/java/01-java基础语法/15-包装类',
+            '/java/01-java基础语法/16-字符串',
             {
               title: 'Java-集合',
               collapsable: true,
@@ -287,7 +287,7 @@ module.exports = {
                 '/java/01-java基础语法/17-java-集合/03-Map集合'
               ]
             },
-            '/java/01-java基础语法/18-Java集合排序'
+            '/java/01-java基础语法/18-集合排序'
           ]
         }
       ],

@@ -1,4 +1,4 @@
-# 初始Java
+# 初始 Java
 
 ```java
 // HelloWord这个叫标识符 类的名字
@@ -13,5 +13,4 @@ public class HelloWord {
         System.out.println("hello word");
     }
 }
-
 ```
