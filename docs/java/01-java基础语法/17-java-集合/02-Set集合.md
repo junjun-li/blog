@@ -2,6 +2,16 @@
 
 Set 是元素无序并且`不可以重复`的集合, 被称为集合
 
+## HashSet
+
+- HashSet 是 Set 的一个重要实现类,称为哈希集
+
+- HashSet 中的元素无序并且不可以重复
+
+- HashSet 中只允许一个 null 元素
+
+- 具有良好的存取和查找性能
+
 ## Set 集合示例
 
 ```java
@@ -234,10 +244,12 @@ public class CatText {
 
     // 删除花花信息
     // 这样子删除有安全隐患, 删除了在循环会报错
+    // 除非删除了就跳出循环
     // removeAll支持传入一个集合
     // for (Cat cat : set) {
     //   if ("花花".equals(cat.getName())) {
     //     set.remove(cat);
+    //     break;
     //   }
     // }
     Set<Cat> removeSetList = new HashSet<Cat>();

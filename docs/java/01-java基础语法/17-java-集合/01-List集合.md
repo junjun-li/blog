@@ -4,7 +4,17 @@ List 中的元素在一片连续的内存空间上顺序存储的。
 
 List 中的元素是可以重复的。
 
-## 方法
+## ArrayList
+
+- ArrayList底层由数组实现
+
+- 动态增长，以满足应用程序的需求
+
+- 在列表尾部插入或删除数据非常有效
+
+- 更适合查找和更新元素
+
+- ArrayList中的元素可以为null
 
 - **ArrayList.size()**
 
@@ -147,6 +157,10 @@ public class Test {
     Notice n3 = new Notice(3, "公告3", "小红", new Date());
 
     ArrayList noticeList = new ArrayList();
+    // 如果在指定下标添加, 第一个参数为下标参数
+    // noticeList.add(1, n3);
+    // 这样子修改
+    // noticeList.set(1, n3);
     noticeList.add(n1);
     noticeList.add(n2);
     noticeList.add(n3);
