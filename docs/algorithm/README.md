@@ -18,6 +18,35 @@
 
 你可以给我提意见，让我们共同进步。😉
 
+## 学习数据结构和算法有什么用 ？
+
+- 数据库底层使用了大量算法
+
+[![RyKUeS.png](https://z3.ax1x.com/2021/07/01/RyKUeS.png)](https://imgtu.com/i/RyKUeS)
+
+- 编辑器，浏览器底层使用了大量的字符串算法解析字符串
+
+[![RyKyQ0.png](https://z3.ax1x.com/2021/07/01/RyKyQ0.png)](https://imgtu.com/i/RyKyQ0)
+
+- 操作系统中，使用了优先队列管理任务
+
+[![RyKWo4.png](https://z3.ax1x.com/2021/07/01/RyKWo4.png)](https://imgtu.com/i/RyKWo4)
+
+- 文件压缩
+
+[![RyKTQx.png](https://z3.ax1x.com/2021/07/01/RyKTQx.png)](https://imgtu.com/i/RyKTQx)
+
+- 游戏中也使用了大量算法
+
+[![RyMZfs.png](https://z3.ax1x.com/2021/07/01/RyMZfs.png)](https://imgtu.com/i/RyMZfs)
+
+- 图形学，渲染问题
+
+[![RyMGtJ.png](https://z3.ax1x.com/2021/07/01/RyMGtJ.png)](https://imgtu.com/i/RyMGtJ)
+
+- 两篇文章，可以看看
+
+[![RyMb3n.png](https://z3.ax1x.com/2021/07/01/RyMb3n.png)](https://imgtu.com/i/RyMb3n)
 ## 注意事项
 
 1. 避免浮躁, 按部就班
