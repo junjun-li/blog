@@ -22,15 +22,15 @@
 
 - 数据库底层使用了大量算法
 
-[![RyKUeS.png](https://z3.ax1x.com/2021/07/01/RyKUeS.png)](https://imgtu.com/i/RyKUeS)
+[![R7w141.png](https://z3.ax1x.com/2021/07/06/R7w141.png)](https://imgtu.com/i/R7w141)
 
 - 编辑器，浏览器底层使用了大量的字符串算法解析字符串
 
-[![RyKyQ0.png](https://z3.ax1x.com/2021/07/01/RyKyQ0.png)](https://imgtu.com/i/RyKyQ0)
+[![R70so9.png](https://z3.ax1x.com/2021/07/06/R70so9.png)](https://imgtu.com/i/R70so9)
 
 - 操作系统中，使用了优先队列管理任务
 
-[![RyKWo4.png](https://z3.ax1x.com/2021/07/01/RyKWo4.png)](https://imgtu.com/i/RyKWo4)
+[![R706iR.png](https://z3.ax1x.com/2021/07/06/R706iR.png)](https://imgtu.com/i/R706iR)
 
 - 文件压缩
 
@@ -38,7 +38,7 @@
 
 - 游戏中也使用了大量算法
 
-[![RyMZfs.png](https://z3.ax1x.com/2021/07/01/RyMZfs.png)](https://imgtu.com/i/RyMZfs)
+[![R70gRx.png](https://z3.ax1x.com/2021/07/06/R70gRx.png)](https://imgtu.com/i/R70gRx)
 
 - 图形学，渲染问题
 
@@ -46,7 +46,7 @@
 
 - 两篇文章，可以看看
 
-[![RyMb3n.png](https://z3.ax1x.com/2021/07/01/RyMb3n.png)](https://imgtu.com/i/RyMb3n)
+[![R70Xy8.png](https://z3.ax1x.com/2021/07/06/R70Xy8.png)](https://imgtu.com/i/R70Xy8)
 ## 注意事项
 
 1. 避免浮躁, 按部就班

@@ -378,6 +378,15 @@ module.exports = {
           path: '/algorithm/'
         },
         {
+          title: '01-算法与数据结构基础',
+          collapsable: false,
+          children: [
+            '/algorithm/01-算法与数据结构基础/01-线性查找法',
+            '/algorithm/01-算法与数据结构基础/02-排序基础',
+            '/algorithm/01-算法与数据结构基础/03-数据结构基础：不要小瞧数组'
+          ]
+        },
+        {
           title: 'js版',
           collapsable: false,
           children: [
