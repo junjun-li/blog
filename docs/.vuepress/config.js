@@ -46,7 +46,6 @@ module.exports = {
       {
         text: '了解更多',
         items: [
-          // { text: 'Markdown教程', link: '/markdown/' },
           { text: '面试题', link: '/interview/' }
         ]
       }
@@ -477,7 +476,6 @@ module.exports = {
           ]
         }
       ],
-      '/markdown/': ['/markdown/'],
       '/interview/': [
         '/interview/',
         '/interview/01-html和css',
