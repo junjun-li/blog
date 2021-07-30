@@ -15,7 +15,10 @@
 2. 粘贴下面的文本（替换为您的 GitHub 电子邮件地址）。
 
 ```shell
+# -t 使用加密算法
+# -f 配置文件名
 ssh-keygen -t ed25519 -C "your_email@example.com"
+ssh-keygen -t ed25519 -f my_github_ed25519  -C "me@github"
 ```
 
 3. 提示您“Enter a file in which to save the key（输入要保存密钥的文件）”时，按 Enter 键。 这将接受默认文件位置。
