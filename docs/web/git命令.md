@@ -1,6 +1,6 @@
 # git 命令
 
-- git rm --cached <file>
+- git rm --cached 文件名
 
 移除暂存区 到 工作区
 
