@@ -37,6 +37,7 @@ module.exports = {
       { text: 'vue3', link: '/vue3/' },
       { text: 'web', link: '/web/apply、call、bind的区别' },
       { text: '数据结构和算法', link: '/algorithm/' },
+      { text: 'web架构师', link: '/architect/' },
       { text: 'ts封装axios', link: '/ts/chapter1/' },
       { text: 'react', link: '/react/' },
       { text: 'webpack', link: '/webpack/' },
@@ -77,7 +78,6 @@ module.exports = {
           ]
         }
       ],
-      // collapsable: false,
       '/js设计模式/': [
         '/js设计模式/',
         {
@@ -367,6 +367,24 @@ module.exports = {
           children: [
             '/frontend/09-团队协作-自动化流程/jenkins安装及对接gitlab',
             '/frontend/09-团队协作-自动化流程/Dockerfile简介及使用'
+          ]
+        }
+      ],
+      '/architect/': [
+        {
+          title: '前言',
+          collapsable: false,
+          path: '/architect/'
+        },
+        {
+          title: '01-脚手架架构设计和框架搭建',
+          collapsable: false,
+          children: [
+            '/architect/01-脚手架涉及和框架搭建/01-开发脚手架的必要性',
+            '/architect/01-脚手架涉及和框架搭建/02-脚手架的实现原理',
+            '/architect/01-脚手架涉及和框架搭建/03-入门第一个脚手架',
+            '/architect/01-脚手架涉及和框架搭建/04-Lerna简介',
+            '/architect/01-脚手架涉及和框架搭建/05-Lerna源码解析',
           ]
         }
       ],
