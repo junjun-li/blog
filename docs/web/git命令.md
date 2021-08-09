@@ -80,3 +80,34 @@ git checkout 分支名
 # 新建一个远程和本地都不存在的分支方式,并且切换该分支
 git checkout -b 分支名
 ```
+
+## .gitignore忽略文件
+
+```shell
+# gitignore忽略某一个文件要这样写 ./src/index.js 这样子忽略不了
+# src/index.js
+
+# 反向排除
+# !src/index.js
+
+# 忽略已加入版本控制器的文件
+git rm --cached index.js
+git rm -r --cached src/
+```
+
+## 比较分支变更
+
+```shell
+# 比较分支 有哪几个文件不一样
+git diff master dev --stat
+
+# dev相较于master 这个文件有什么变化
+git diff master dev ./src/index.js
+```
+
+## 将仓库记录和恢复指定历史位置
+
+```shell
+# 撤销最近一次的 commit 记录(会把commit记录删除)
+git reset 哈希值
+```
