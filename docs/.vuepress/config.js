@@ -557,6 +557,11 @@ module.exports = {
           ]
         },
         {
+          title: '03-Vue使用',
+          collapsable: false,
+          path: '/interview/03-Vue使用/01-基本使用',
+        },
+        {
           title: '03-Vue原理',
           collapsable: false,
           path: '/interview/03-Vue原理/01-如何理解MVVM',
@@ -587,9 +592,9 @@ module.exports = {
               path: '/interview/03-Vue原理/04-虚拟DOM'
             },
             {
-              title: 'Vue面试题讲解',
+              title: '面试题',
               collapsable: false,
-              path: '/interview/03-Vue原理/Vue面试题讲解'
+              path: '/interview/03-Vue原理/面试题'
             }
           ]
         }
