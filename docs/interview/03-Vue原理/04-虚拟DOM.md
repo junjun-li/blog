@@ -1,4 +1,4 @@
-# 虚拟 DOM（Virtual DOM）
+# 虚拟 DOM (Virtual DOM)
 
 - vdom 是实现 Vue 和 React 的重要基石
 

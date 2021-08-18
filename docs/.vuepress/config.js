@@ -515,11 +515,6 @@ module.exports = {
               path: '/interview/02-JS基础/02-原型和原型链'
             },
             {
-              title: '继承',
-              collapsable: false,
-              path: '/interview/02-JS基础/03-继承'
-            },
-            {
               title: '作用域和闭包',
               collapsable: false,
               path: '/interview/02-JS基础/03-作用域和闭包'
@@ -532,28 +527,28 @@ module.exports = {
             {
               title: '异步-Promise进阶',
               collapsable: false,
-              path: '/interview/02-JS基础/04-异步-Promise进阶'
+              path: '/interview/02-JS基础/05-异步进阶1'
             },
             {
               title: '宏任务和微任务',
               collapsable: false,
-              path: '/interview/02-JS基础/04-宏任务和微任务'
+              path: '/interview/02-JS基础/05-异步进阶2'
             },
-            {
-              title: '性能优化',
-              collapsable: false,
-              path: '/interview/02-JS基础/05-性能优化'
-            },
-            {
-              title: 'web安全',
-              collapsable: false,
-              path: '/interview/02-JS基础/06-web安全'
-            },
-            {
-              title: '浏览器的工作原理',
-              collapsable: false,
-              path: '/interview/02-JS基础/07-浏览器的工作原理'
-            }
+            // {
+            //   title: '性能优化',
+            //   collapsable: false,
+            //   path: '/interview/02-JS基础/05-性能优化'
+            // },
+            // {
+            //   title: 'web安全',
+            //   collapsable: false,
+            //   path: '/interview/02-JS基础/06-web安全'
+            // },
+            // {
+            //   title: '浏览器的工作原理',
+            //   collapsable: false,
+            //   path: '/interview/02-JS基础/07-浏览器的工作原理'
+            // }
           ]
         },
         {
@@ -566,11 +561,6 @@ module.exports = {
           collapsable: false,
           path: '/interview/03-Vue原理/01-如何理解MVVM',
           children: [
-            {
-              title: 'vue父子组件生命周期',
-              collapsable: false,
-              path: '/interview/03-Vue原理/01-vue父子组件生命周期'
-            },
             {
               title: '如何理解MVVM',
               collapsable: false,
