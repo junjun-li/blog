@@ -297,11 +297,12 @@ module.exports = {
         {
           title: '01-准备工作',
           collapsable: false,
-          path: '/vue2/01-prepare/01-flow',
+          path: '/vue2/01-准备/01-flow',
           children: [
-            '/vue2/01-prepare/01-flow',
-            '/vue2/01-prepare/02-directory',
-            '/vue2/01-prepare/03-build'
+            '/vue2/01-准备/01-flow',
+            '/vue2/01-准备/02-directory',
+            '/vue2/01-准备/03-build',
+            '/vue2/01-准备/04-entrance',
           ]
         }
       ],
@@ -586,6 +587,33 @@ module.exports = {
               collapsable: false,
               path: '/interview/03-Vue原理/面试题'
             }
+          ]
+        },
+        {
+          title: '04-webpack和babel',
+          collapsable: false,
+          path: '/interview/04-webpack和babel',
+          children: [
+            {
+              title: '01-配置多入口',
+              collapsable: false,
+              path: '/interview/04-webpack和babel/01-配置多入口'
+            },
+            {
+              title: '02-抽离压缩css文件',
+              collapsable: false,
+              path: '/interview/04-webpack和babel/02-抽离压缩css文件'
+            },
+            {
+              title: '03-抽离公共代码和第三方代码',
+              collapsable: false,
+              path: '/interview/04-webpack和babel/03-抽离公共代码和第三方代码'
+            },
+            {
+              title: '04-性能优化',
+              collapsable: false,
+              path: '/interview/04-webpack和babel/04-性能优化'
+            },
           ]
         }
       ],

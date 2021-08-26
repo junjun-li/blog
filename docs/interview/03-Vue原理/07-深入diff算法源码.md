@@ -15,3 +15,7 @@
 - 相同的vnode进行比较，如果不同直接销毁dom重建
 
 [![fI4RNq.png](https://z3.ax1x.com/2021/08/18/fI4RNq.png)](https://imgtu.com/i/fI4RNq)
+
+## pathVnode函数
+
+## updateChildren函数

@@ -3,27 +3,10 @@
 ## snabbdom-demo
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>snabbdom-demo</title>
-    <style>
-      li {
-        list-style: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app"></div>
-    <button id="btn-change">change</button>
-  </body>
-</html>
+<body>
+  <div id="app"></div>
+  <button id="btn-change">change</button>
+</body>
 <script src="https://cdn.bootcss.com/snabbdom/0.7.3/snabbdom.js"></script>
 <script src="https://cdn.bootcss.com/snabbdom/0.7.3/snabbdom-class.js"></script>
 <script src="https://cdn.bootcss.com/snabbdom/0.7.3/snabbdom-props.js"></script>

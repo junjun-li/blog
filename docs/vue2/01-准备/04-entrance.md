@@ -1,4 +1,4 @@
-# import Vue 做了啥事
+# 从入口开始
 
 我们之前提到过 Vue.js 构建过程，在 web 应用下，我们来分析 Runtime + Compiler 构建出来的 Vue.js，它的入口是 `src/platforms/web/entry-runtime-with-compiler.js`：
 
@@ -8,106 +8,12 @@
 import config from 'core/config'
 import { warn, cached } from 'core/util/index'
 import { mark, measure } from 'core/util/perf'
-
+// 继续找这个 Vue
 import Vue from './runtime/index'
 import { query } from './util/index'
 import { compileToFunctions } from './compiler/index'
-import {
-  shouldDecodeNewlines,
-  shouldDecodeNewlinesForHref
-} from './util/compat'
 
-const idToTemplate = cached(id => {
-  const el = query(id)
-  return el && el.innerHTML
-})
-
-const mount = Vue.prototype.$mount
-Vue.prototype.$mount = function(
-  el?: string | Element,
-  hydrating?: boolean
-): Component {
-  el = el && query(el)
-
-  /* istanbul ignore if */
-  if (el === document.body || el === document.documentElement) {
-    process.env.NODE_ENV !== 'production' &&
-      warn(
-        `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
-      )
-    return this
-  }
-
-  const options = this.$options
-  // resolve template/el and convert to render function
-  if (!options.render) {
-    let template = options.template
-    if (template) {
-      if (typeof template === 'string') {
-        if (template.charAt(0) === '#') {
-          template = idToTemplate(template)
-          /* istanbul ignore if */
-          if (process.env.NODE_ENV !== 'production' && !template) {
-            warn(
-              `Template element not found or is empty: ${options.template}`,
-              this
-            )
-          }
-        }
-      } else if (template.nodeType) {
-        template = template.innerHTML
-      } else {
-        if (process.env.NODE_ENV !== 'production') {
-          warn('invalid template option:' + template, this)
-        }
-        return this
-      }
-    } else if (el) {
-      template = getOuterHTML(el)
-    }
-    if (template) {
-      /* istanbul ignore if */
-      if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
-        mark('compile')
-      }
-
-      const { render, staticRenderFns } = compileToFunctions(
-        template,
-        {
-          outputSourceRange: process.env.NODE_ENV !== 'production',
-          shouldDecodeNewlines,
-          shouldDecodeNewlinesForHref,
-          delimiters: options.delimiters,
-          comments: options.comments
-        },
-        this
-      )
-      options.render = render
-      options.staticRenderFns = staticRenderFns
-
-      /* istanbul ignore if */
-      if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
-        mark('compile end')
-        measure(`vue ${this._name} compile`, 'compile', 'compile end')
-      }
-    }
-  }
-  return mount.call(this, el, hydrating)
-}
-
-/**
- * Get outerHTML of elements, taking care
- * of SVG elements in IE as well.
- */
-function getOuterHTML(el: Element): string {
-  if (el.outerHTML) {
-    return el.outerHTML
-  } else {
-    const container = document.createElement('div')
-    container.appendChild(el.cloneNode(true))
-    return container.innerHTML
-  }
-}
+// 源码...
 
 Vue.compile = compileToFunctions
 
@@ -143,6 +49,11 @@ import { initGlobalAPI } from './global-api/index'
 import { isServerRendering } from 'core/util/env'
 import { FunctionalRenderContext } from 'core/vdom/create-functional-component'
 
+/**
+ * 初始化全局的api，例如是否开启 devtools 等配置选项
+ */
+initGlobalAPI(Vue)
+
 // ...
 
 Vue.version = '__VERSION__'
@@ -162,16 +73,19 @@ import { eventsMixin } from './events'
 import { lifecycleMixin } from './lifecycle'
 import { warn } from '../util/index'
 
-// 可以理解为 Vue 就是使用函数实现的一个类
-function Vue(options) {
-  if (process.env.NODE_ENV !== 'production' && !(this instanceof Vue)) {
+function Vue (options) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    !(this instanceof Vue)
+  ) {
     warn('Vue is a constructor and should be called with the `new` keyword')
   }
   this._init(options)
 }
 
-// 每一个 Minxin 就是往 vue 的原型上混入一些方法
+// 每一个 Minxin 就是往 vue 的原型上混入一些方法(挂载原型方法)
 // 用 es5 比较简单,方便拆分模块, 用 class 就没有这么方便了
+
 initMixin(Vue)
 stateMixin(Vue)
 eventsMixin(Vue)

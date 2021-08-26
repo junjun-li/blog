@@ -55,106 +55,8 @@ Vue.js 源码是基于 [Rollup](https://github.com/rollup/rollup) 构建的，�
     "release:weex": "bash scripts/release-weex.sh",
     "release:note": "node scripts/gen-release-note.js",
     "commit": "git-cz"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "node scripts/verify-commit-msg.js"
-  },
-  "lint-staged": {
-    "*.js": ["eslint --fix", "git add"]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vuejs/vue.git"
-  },
-  "keywords": ["vue"],
-  "author": "Evan You",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vuejs/vue/issues"
-  },
-  "homepage": "https://github.com/vuejs/vue#readme",
-  "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-jsx": "^7.0.0",
-    "@babel/plugin-transform-flow-strip-types": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "@types/node": "^12.12.0",
-    "@types/webpack": "^4.4.22",
-    "acorn": "^5.2.1",
-    "babel-eslint": "^10.0.1",
-    "babel-helper-vue-jsx-merge-props": "^2.0.3",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-istanbul": "^5.1.0",
-    "babel-plugin-transform-vue-jsx": "^4.0.1",
-    "babel-preset-flow-vue": "^1.0.0",
-    "buble": "^0.19.3",
-    "chalk": "^2.3.0",
-    "chromedriver": "^2.45.0",
-    "codecov": "^3.0.0",
-    "commitizen": "^2.9.6",
-    "conventional-changelog": "^1.1.3",
-    "cross-spawn": "^6.0.5",
-    "cz-conventional-changelog": "^2.0.0",
-    "de-indent": "^1.0.2",
-    "es6-promise": "^4.1.0",
-    "escodegen": "^1.8.1",
-    "eslint": "^5.7.0",
-    "eslint-plugin-flowtype": "^2.34.0",
-    "eslint-plugin-jasmine": "^2.8.4",
-    "file-loader": "^3.0.1",
-    "flow-bin": "^0.61.0",
-    "hash-sum": "^1.0.2",
-    "he": "^1.1.1",
-    "http-server": "^0.12.3",
-    "jasmine": "^2.99.0",
-    "jasmine-core": "^2.99.0",
-    "karma": "^3.1.1",
-    "karma-chrome-launcher": "^2.1.1",
-    "karma-coverage": "^1.1.1",
-    "karma-firefox-launcher": "^1.0.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-mocha-reporter": "^2.2.3",
-    "karma-phantomjs-launcher": "^1.0.4",
-    "karma-safari-launcher": "^1.0.0",
-    "karma-sauce-launcher": "^2.0.2",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^4.0.0-rc.2",
-    "lint-staged": "^8.0.0",
-    "lodash": "^4.17.4",
-    "lodash.template": "^4.4.0",
-    "lodash.uniq": "^4.5.0",
-    "lru-cache": "^5.1.1",
-    "nightwatch": "^0.9.16",
-    "nightwatch-helpers": "^1.2.0",
-    "phantomjs-prebuilt": "^2.1.14",
-    "puppeteer": "^1.11.0",
-    "resolve": "^1.3.3",
-    "rollup": "^1.0.0",
-    "rollup-plugin-alias": "^1.3.1",
-    "rollup-plugin-buble": "^0.19.6",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-flow-no-whitespace": "^1.0.0",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-replace": "^2.0.0",
-    "selenium-server": "^2.53.1",
-    "serialize-javascript": "^3.1.0",
-    "shelljs": "^0.8.1",
-    "terser": "^3.10.2",
-    "typescript": "^3.6.4",
-    "webpack": "~4.28.4",
-    "weex-js-runtime": "^0.23.6",
-    "weex-styler": "^0.3.0",
-    "yorkie": "^2.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
+  // ...
 }
 ```
 
@@ -187,51 +89,113 @@ if (process.argv[2]) {
 }
 // 最后调用 build 函数执行构建
 build(builds)
+
+/**
+ * 打包函数
+ * @param builds [rollupConfig1, rollupConfig2, ...] 所需要的所有配置 然后依次打包
+ */
+function build (builds) {
+  let built = 0
+  const total = builds.length
+  const next = () => {
+    buildEntry(builds[built]).then(() => {
+      built++
+      if (built < total) {
+        next()
+      }
+    }).catch(logError)
+  }
+
+  next()
+}
 ```
 
 这段代码逻辑非常简单，先从配置文件读取配置，再通过命令行参数对构建配置做过滤，这样就可以构建出不同用途的 Vue.js 了。接下来我们看一下配置文件，在 `scripts/config.js` 中：
 
-:::tip builds对象属性的含义
-entry: 入口
+### builds 对象属性的含义
 
-dest: 出口
+- entry: 入口
 
-format: 文件格式(根据不同的format构建不同版本的vue)
+- dest: 出口
 
-banner: 版本注释
-:::
+- format: 文件格式(根据不同的 format 构建不同版本的 vue)
+
+- banner: 版本注释
 
 ```js
-// 这一段就放置了构建不同版本 vue.js 编译的配置
 const builds = {
   // Runtime only (CommonJS). Used by bundlers e.g. Webpack & Browserify
-  'web-runtime-cjs': {
+  /**
+   * 以 src/platforms/web/entry-runtime.js 作为入口
+   * 把最终的代码编译到 dist/vue.runtime.common.dev.js 中
+   */
+  'web-runtime-cjs-dev': {
+    // 入口
     entry: resolve('web/entry-runtime.js'),
-    dest: resolve('dist/vue.runtime.common.js'),
+    // 出口
+    dest: resolve('dist/vue.runtime.common.dev.js'),
+    // 文件格式
     format: 'cjs',
+    env: 'development',
+    // 编译的注释信息
+    banner
+  },
+  'web-runtime-cjs-prod': {
+    entry: resolve('web/entry-runtime.js'),
+    dest: resolve('dist/vue.runtime.common.prod.js'),
+    format: 'cjs',
+    env: 'production',
     banner
   },
   // Runtime+compiler CommonJS build (CommonJS)
-  'web-full-cjs': {
+  'web-full-cjs-dev': {
     entry: resolve('web/entry-runtime-with-compiler.js'),
-    dest: resolve('dist/vue.common.js'),
+    dest: resolve('dist/vue.common.dev.js'),
     format: 'cjs',
+    env: 'development',
     alias: { he: './entity-decoder' },
     banner
   },
-  // Runtime only (ES Modules). Used by bundlers that support ES Modules,
-  // e.g. Rollup & Webpack 2
+  'web-full-cjs-prod': {
+    entry: resolve('web/entry-runtime-with-compiler.js'),
+    dest: resolve('dist/vue.common.prod.js'),
+    format: 'cjs',
+    env: 'production',
+    alias: { he: './entity-decoder' },
+    banner
+  },
+  // Runtime only ES modules build (for bundlers)
   'web-runtime-esm': {
     entry: resolve('web/entry-runtime.js'),
     dest: resolve('dist/vue.runtime.esm.js'),
     format: 'es',
     banner
   },
-  // Runtime+compiler CommonJS build (ES Modules)
+  // Runtime+compiler ES modules build (for bundlers)
   'web-full-esm': {
     entry: resolve('web/entry-runtime-with-compiler.js'),
     dest: resolve('dist/vue.esm.js'),
     format: 'es',
+    alias: { he: './entity-decoder' },
+    banner
+  },
+  // Runtime+compiler ES modules build (for direct import in browser)
+  'web-full-esm-browser-dev': {
+    entry: resolve('web/entry-runtime-with-compiler.js'),
+    dest: resolve('dist/vue.esm.browser.js'),
+    format: 'es',
+    transpile: false,
+    env: 'development',
+    alias: { he: './entity-decoder' },
+    banner
+  },
+  // Runtime+compiler ES modules build (for direct import in browser)
+  'web-full-esm-browser-prod': {
+    entry: resolve('web/entry-runtime-with-compiler.js'),
+    dest: resolve('dist/vue.esm.browser.min.js'),
+    format: 'es',
+    transpile: false,
+    env: 'production',
     alias: { he: './entity-decoder' },
     banner
   },
@@ -252,20 +216,12 @@ const builds = {
     banner
   },
   // Runtime+compiler development build (Browser)
+  // 编译web端直接可以使用的js
   'web-full-dev': {
     entry: resolve('web/entry-runtime-with-compiler.js'),
     dest: resolve('dist/vue.js'),
     format: 'umd',
     env: 'development',
-    alias: { he: './entity-decoder' },
-    banner
-  },
-  // Runtime+compiler production build  (Browser)
-  'web-full-prod': {
-    entry: resolve('web/entry-runtime-with-compiler.js'),
-    dest: resolve('dist/vue.min.js'),
-    format: 'umd',
-    env: 'production',
     alias: { he: './entity-decoder' },
     banner
   }
@@ -283,12 +239,12 @@ const builds = {
 源码目录：`scripts/config.js`
 
 ```js
-// 假如打包 web-runtime-cjs-dev 
-// 
+// 假如打包 web-runtime-cjs-dev
+//
 const aliases = require('./alias')
 const resolve = p => {
   // web/entry-runtime.js
-  // const base = 'web' 
+  // const base = 'web'
   const base = p.split('/')[0]
   if (aliases[base]) {
     // 最终会找到这个配置
@@ -325,15 +281,14 @@ module.exports = {
 很显然，这里 `web` 对应的真实的路径是 `path.resolve(__dirname, '../src/platforms/web')`，这个路径就找到了 Vue.js 源码的 web 目录。然后 `resolve` 函数通过 `path.resolve(aliases[base], p.slice(base.length + 1))` 找到了最终路径，它就是 Vue.js 源码 web 目录下的 `entry-runtime.js`。因此，`web-runtime-cjs` 配置对应的入口文件就找到了。
 
 ```js
-function genConfig (name) {
+function genConfig(name) {
   // ...省略源码
   const config = {
     input: opts.entry,
     external: opts.external,
-    plugins: [
-      flow(),
-      alias(Object.assign({}, aliases, opts.alias))
-    ].concat(opts.plugins || []),
+    plugins: [flow(), alias(Object.assign({}, aliases, opts.alias))].concat(
+      opts.plugins || []
+    ),
     output: {
       file: opts.dest,
       format: opts.format,
@@ -364,26 +319,27 @@ if (process.env.TARGET) {
 
 通常我们利用 vue-cli 去初始化我们的 Vue.js 项目的时候会询问我们用 Runtime Only 版本的还是 Runtime + Compiler 版本。下面我们来对比这两个版本。
 
-- Runtime Only
+- Runtime Only(这个版本使用render函数)
 
 我们在使用 Runtime Only 版本的 Vue.js 的时候，通常需要借助如 webpack 的 vue-loader 工具把 .vue 文件编译成 JavaScript，因为是在编译阶段做的，所以它只包含运行时的 Vue.js 代码，因此代码体积也会更轻量。
 
-- Runtime + Compiler
+- Runtime + Compiler(这个版本使用template字符串)
 
 我们如果没有对代码做预编译，但又使用了 Vue 的 template 属性并传入一个字符串，则需要在客户端编译模板，如下所示：
 
 ```js
-// 需要编译器的版本, 使用 Runtime + Compiler
-new Vue({
-  template: '<div>{{ hi }}</div>'
-})
-
-// 这种情况不需要
+// 这种情况不需要，使用 => Runtime Only
 new Vue({
   render(h) {
     return h('div', this.hi)
   }
 })
+
+// 需要编译器的版本, 使用 => Runtime + Compiler
+new Vue({
+  template: '<div>{{ hi }}</div>'
+})
+
 ```
 
 因为在 Vue.js 2.0 中，最终渲染都是通过 `render` 函数，如果写 `template` 属性，则需要编译成 `render` 函数，那么这个编译过程会发生运行时，所以需要带有编译器的版本。
