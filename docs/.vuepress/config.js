@@ -590,29 +590,29 @@ module.exports = {
           ]
         },
         {
-          title: '04-webpack和babel',
+          title: '04-webpack',
           collapsable: false,
-          path: '/interview/04-webpack和babel',
+          path: '/interview/04-webpack',
           children: [
             {
               title: '01-配置多入口',
               collapsable: false,
-              path: '/interview/04-webpack和babel/01-配置多入口'
+              path: '/interview/04-webpack/01-配置多入口'
             },
             {
               title: '02-抽离压缩css文件',
               collapsable: false,
-              path: '/interview/04-webpack和babel/02-抽离压缩css文件'
+              path: '/interview/04-webpack/02-抽离压缩css文件'
             },
             {
               title: '03-抽离公共代码和第三方代码',
               collapsable: false,
-              path: '/interview/04-webpack和babel/03-抽离公共代码和第三方代码'
+              path: '/interview/04-webpack/03-抽离公共代码和第三方代码'
             },
             {
               title: '04-性能优化',
               collapsable: false,
-              path: '/interview/04-webpack和babel/04-性能优化'
+              path: '/interview/04-webpack/04-性能优化'
             },
           ]
         }
