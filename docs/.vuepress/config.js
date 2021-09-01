@@ -46,9 +46,7 @@ module.exports = {
 
       {
         text: '了解更多',
-        items: [
-          { text: '面试题', link: '/interview/' }
-        ]
+        items: [{ text: '面试题', link: '/interview/' }]
       }
     ],
     sidebar: {
@@ -288,7 +286,7 @@ module.exports = {
             },
             '/java/01-java基础语法/18-集合排序',
             '/java/01-java基础语法/19-泛型',
-            '/java/01-java基础语法/20-进程',
+            '/java/01-java基础语法/20-进程'
           ]
         }
       ],
@@ -302,7 +300,7 @@ module.exports = {
             '/vue2/01-准备/01-flow',
             '/vue2/01-准备/02-directory',
             '/vue2/01-准备/03-build',
-            '/vue2/01-准备/04-entrance',
+            '/vue2/01-准备/04-entrance'
           ]
         }
       ],
@@ -385,7 +383,7 @@ module.exports = {
             '/architect/01-脚手架涉及和框架搭建/02-脚手架的实现原理',
             '/architect/01-脚手架涉及和框架搭建/03-入门第一个脚手架',
             '/architect/01-脚手架涉及和框架搭建/04-Lerna简介',
-            '/architect/01-脚手架涉及和框架搭建/05-Lerna源码解析',
+            '/architect/01-脚手架涉及和框架搭建/05-Lerna源码解析'
           ]
         }
       ],
@@ -498,8 +496,6 @@ module.exports = {
       '/interview/': [
         '/interview/',
         '/interview/01-html和css',
-        // '/interview/02-js基础',
-        // '/interview/03-vue',
         {
           title: '02-js基础',
           collapsable: false,
@@ -526,15 +522,25 @@ module.exports = {
               path: '/interview/02-JS基础/04-异步'
             },
             {
-              title: '异步-Promise进阶',
+              title: '异步进阶1',
               collapsable: false,
               path: '/interview/02-JS基础/05-异步进阶1'
             },
             {
-              title: '宏任务和微任务',
+              title: '异步进阶2',
               collapsable: false,
               path: '/interview/02-JS基础/05-异步进阶2'
             },
+            {
+              title: 'Web-Api',
+              collapsable: false,
+              path: '/interview/02-JS基础/06-Web-Api'
+            },
+            {
+              title: '运行环境',
+              collapsable: false,
+              path: '/interview/02-JS基础/07-运行环境'
+            }
             // {
             //   title: '性能优化',
             //   collapsable: false,
@@ -556,64 +562,101 @@ module.exports = {
           title: '03-Vue使用',
           collapsable: false,
           path: '/interview/03-Vue使用/01-基本使用',
-        },
-        {
-          title: '03-Vue原理',
-          collapsable: false,
-          path: '/interview/03-Vue原理/01-如何理解MVVM',
           children: [
             {
-              title: '如何理解MVVM',
+              title: '01-基本使用',
               collapsable: false,
-              path: '/interview/03-Vue原理/01-如何理解MVVM'
+              path: '/interview/03-Vue使用/01-基本使用'
             },
             {
-              title: '监听data变化的核心API是什么',
+              title: '02-高级特性',
               collapsable: false,
-              path: '/interview/03-Vue原理/02-监听data变化的核心API是什么'
-            },
-            {
-              title: '如何监听数组的变化',
-              collapsable: false,
-              path: '/interview/03-Vue原理/03-如何监听数组的变化'
-            },
-            {
-              title: '虚拟DOM',
-              collapsable: false,
-              path: '/interview/03-Vue原理/04-虚拟DOM'
-            },
-            {
-              title: '面试题',
-              collapsable: false,
-              path: '/interview/03-Vue原理/面试题'
+              path: '/interview/03-Vue使用/02-高级特性'
             }
           ]
         },
         {
-          title: '04-webpack',
+          title: '04-Vue原理',
           collapsable: false,
-          path: '/interview/04-webpack',
+          path: '/interview/04-Vue原理',
+          children: [
+            {
+              title: '01-如何理解MVVM',
+              collapsable: false,
+              path: '/interview/04-Vue原理/01-如何理解MVVM'
+            },
+            {
+              title: '02-监听data变化的核心API是什么',
+              collapsable: false,
+              path: '/interview/04-Vue原理/02-监听data变化的核心API是什么'
+            },
+            {
+              title: '03-如何监听数组的变化',
+              collapsable: false,
+              path: '/interview/04-Vue原理/03-如何监听数组的变化'
+            },
+            {
+              title: '04-虚拟DOM',
+              collapsable: false,
+              path: '/interview/04-Vue原理/04-虚拟DOM'
+            },
+            {
+              title: '05-用过虚拟DOM吗',
+              collapsable: false,
+              path: '/interview/04-Vue原理/05-用过虚拟DOM吗'
+            },
+            {
+              title: '06-虚拟DOM-diff算法概述',
+              collapsable: false,
+              path: '/interview/04-Vue原理/06-虚拟DOM-diff算法概述'
+            },
+            {
+              title: '07-深入diff算法源码',
+              collapsable: false,
+              path: '/interview/04-Vue原理/07-深入diff算法源码'
+            },
+            {
+              title: '08-模板编译',
+              collapsable: false,
+              path: '/interview/04-Vue原理/08-模板编译'
+            },
+            {
+              title: '09-vue组件是如何渲染和更新的',
+              collapsable: false,
+              path: '/interview/04-Vue原理/09-vue组件是如何渲染和更新的'
+            },
+            {
+              title: '10-vue-router原理',
+              collapsable: false,
+              path: '/interview/04-Vue原理/10-vue-router原理'
+            }
+          ]
+        },
+        {
+          title: '05-webpack',
+          collapsable: false,
+          path: '/interview/05-webpack',
           children: [
             {
               title: '01-配置多入口',
               collapsable: false,
-              path: '/interview/04-webpack/01-配置多入口'
+              path: '/interview/05-webpack/01-配置多入口'
             },
             {
               title: '02-抽离压缩css文件',
               collapsable: false,
-              path: '/interview/04-webpack/02-抽离压缩css文件'
+              path: '/interview/05-webpack/02-抽离压缩css文件'
             },
             {
               title: '03-抽离公共代码和第三方代码',
               collapsable: false,
-              path: '/interview/04-webpack/03-抽离公共代码和第三方代码'
+              path: '/interview/05-webpack/03-抽离公共代码和第三方代码'
             },
             {
               title: '04-性能优化',
               collapsable: false,
-              path: '/interview/04-webpack/04-性能优化'
-            },
+              path: '/interview/05-webpack/04-性能优化'
+            }
           ]
         }
       ],
