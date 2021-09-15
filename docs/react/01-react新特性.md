@@ -1,4 +1,4 @@
-# React新特性
+# React 新特性
 
 ## Context 实现跨层级的组件数据传递
 
@@ -170,6 +170,8 @@ export default ContextDemo
 
 ## Lazy 与 Suspense 实现延迟加载
 
+> 解决页面首次加载的性能问题
+
 ```js
 import React, { Component, lazy, Suspense } from 'react'
 
@@ -225,6 +227,8 @@ export default LazyDemo
 ```
 
 ## memo 优化性能
+
+> 解决运行时的效率问题
 
 [react-memo](https://zh-hans.reactjs.org/docs/react-api.html#reactmemo)
 

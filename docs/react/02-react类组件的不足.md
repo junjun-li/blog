@@ -164,13 +164,13 @@ export default Bar
 
 ## 2. 趋向复杂难以维护(生命周期与状态混乱导致难以复用逻辑)
 
-### 生命周期函数混杂不相干的逻辑
+- 生命周期函数混杂不相干的逻辑
 
-### 相干逻辑分散在不同生命周期之中
+- 相干逻辑分散在不同生命周期之中
 
 ## 3. this 指向困扰(this 指向非常复杂)
 
-### 内联函数过度创建新句柄
+- 内联函数过度创建新句柄
 
 ```js
 class demo extends React.Component {
@@ -193,12 +193,13 @@ class demo extends React.Component {
 }
 ```
 
-### 类成员属性不能保证 this 的指向
+- 类成员属性不能保证 this 的指向
 
 ## Hooks 的写法（优雅，高级）
 
 ```js
 import React, { useState, useEffect } from 'react'
+
 const HooksDemo = () => {
   const [size, setSize] = useState([window.innerWidth, window.innerHeight])
   useEffect(() => {

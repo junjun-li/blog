@@ -486,9 +486,14 @@ module.exports = {
               path: '/react/01-react新特性'
             },
             {
-              title: '02-React颠覆性新特性Hooks',
+              title: '02-react类组件的不足',
               collapsable: false,
-              path: '/react/02-react-hooks'
+              path: '/react/02-react类组件的不足'
+            },
+            {
+              title: '03-react-hooks',
+              collapsable: false,
+              path: '/react/03-react-hooks'
             }
           ]
         }

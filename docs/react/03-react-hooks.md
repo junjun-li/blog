@@ -1,6 +1,6 @@
 # React-Hooks
 
-## Hooks 使用的注意事项
+## [useState](https://zh-hans.reactjs.org/docs/hooks-overview.html#state-hook)
 
 1. `useState`必须按照固定的顺序和次数进行调用, 不能多也不能少(非常严格), 可以传入一个参数当做默认值
 
@@ -28,6 +28,21 @@ function StateHooksDemo(props) {
 
 2. 不能在条件语句中使用`useState`, 原理同 1
 
+```js
+function App(props) {
+  // 禁止这样子书写
+  let count, setCount
+  if (id > 0) {
+    ;[count, setCount] = useState(0)
+  }
+  return (
+    <div>
+      <button>Click {count}</button>
+    </div>
+  )
+}
+```
+
 3. 为了安全也不要在 for 循环中使用
 
 ## [useEffect](https://zh-hans.reactjs.org/docs/hooks-reference.html#useeffect)
@@ -35,6 +50,8 @@ function StateHooksDemo(props) {
 使用类语法, 会产生很多副作用, 例如 绑定事件, 网络请求, 访问 DOM
 
 该 Hook 接收一个包含命令式、且可能有副作用代码的函数。
+
+`useEffect`就是一个 Effect Hook，给函数组件增加了操作副作用的能力
 
 ```js
 function EffectHooks(props) {
@@ -164,7 +181,9 @@ function ContextHooks() {
 export default ContextHooks
 ```
 
-## [useMemo 性能优化](https://zh-hans.reactjs.org/docs/hooks-reference.html#usememo)
+## [useMemo 和 useCallback](https://zh-hans.reactjs.org/docs/hooks-reference.html#usememo)
+
+> 使用 Memo 不会导致逻辑发生改变，它只作为性能优化使用
 
 把“创建”函数和依赖项数组作为参数传入 useMemo，它仅会在某个依赖项改变时才重新计算 memoized 值。这种优化有助于避免在每次渲染时都进行高开销的计算。
 
@@ -184,6 +203,7 @@ function MemoHooks() {
     return count * 2
   }, [count === 3])
 
+  // useMemo可以依赖于另一个useMemo
   // const half = useMemo(() => {
   //   return double / 4
   // }, [double])
@@ -214,6 +234,11 @@ function MemoHooks() {
       >
         Click {count} double: {double}
       </button>
+      {/*
+        onClick 是一个函数，每次 render 执行的时候，onClick 都是一个新的句柄
+        使用 useMemo 把这个 onClick 函数包裹起来，
+        每次 render 更新的时候，返回的都是同一个句柄
+      */}
       <Counter count={double} onClick={onClick} />
     </div>
   )
@@ -224,14 +249,32 @@ export default MemoHooks
 
 ## [useRef](https://zh-hans.reactjs.org/docs/hooks-reference.html#useref)
 
+作用：
+
 1. 获取子组件或 DOM 节点的句柄
+
+```js
+// 1. 获取子组件或DOM节点的句柄
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null)
+  const onButtonClick = () => {
+    // `current` 指向已挂载到 DOM 上的文本输入元素
+    console.log(inputEl.current)
+    inputEl.current.focus()
+  }
+  return (
+    <>
+      <input ref={inputEl} type="text" />
+      <button onClick={onButtonClick}>Focus the input</button>
+    </>
+  )
+}
+```
+
 2. 渲染周期之间共享数据的存储
 
 ```js
 import React, { useRef, useState, useEffect } from 'react'
-// 作用
-// 1. 获取子组件或DOM节点的句柄
-// 2. 渲染周期之间共享数据的存储
 
 function Counter(props) {
   return <h1>{props.count}</h1>
@@ -360,5 +403,3 @@ export default CustomHooks
 2. 只在 React 函数中调用 Hook
 
 不要在其他普通函数调用 Hook, Hook 函数的调用, 要清晰可辨, 这是为了防止在条件语句等地方使用 Hook
-
-## Hooks 的常见问题
