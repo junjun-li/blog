@@ -3,7 +3,8 @@
 ## WebStorm 调试技巧
 
 1. 添加 node 配置文件
-   [![W442M8.png](https://z3.ax1x.com/2021/07/27/W442M8.png)](https://imgtu.com/i/W442M8)
+
+[![W442M8.png](https://z3.ax1x.com/2021/07/27/W442M8.png)](https://imgtu.com/i/W442M8)
 
 2. 找到`core/lerna/cli.js`lerna 的主入口即可开始调试
 
