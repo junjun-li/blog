@@ -50,7 +50,7 @@ create-react-app: https://github.com/facebook/create-react-app
 
 ## lerna 开发脚手架流程（划重点）
 
-[![fGG0pT.png](https://z3.ax1x.com/2021/08/09/fGG0pT.png)](https://imgtu.com/i/fGG0pT)
+[![06.png](./img/06.png)](./img/06.png)
 
 ## 基于 Lerna 创建项目(命令基础介绍)
 
