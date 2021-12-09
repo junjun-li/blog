@@ -379,11 +379,11 @@ module.exports = {
           title: '01-脚手架架构设计和框架搭建',
           collapsable: false,
           children: [
-            '/architect/01-脚手架涉及和框架搭建/01-开发脚手架的必要性',
-            '/architect/01-脚手架涉及和框架搭建/02-脚手架的实现原理',
-            '/architect/01-脚手架涉及和框架搭建/03-入门第一个脚手架',
-            '/architect/01-脚手架涉及和框架搭建/04-Lerna简介',
-            '/architect/01-脚手架涉及和框架搭建/05-Lerna源码解析'
+            '/architect/02-脚手架涉及和框架搭建/01-开发脚手架的必要性',
+            '/architect/02-脚手架涉及和框架搭建/02-从使用角度理解什么是脚手架',
+            '/architect/02-脚手架涉及和框架搭建/03-脚手架的实现原理',
+            '/architect/02-脚手架涉及和框架搭建/04-Lerna简介',
+            '/architect/02-脚手架涉及和框架搭建/05-Lerna源码解析'
           ]
         }
       ],
@@ -404,6 +404,13 @@ module.exports = {
             '/algorithm/01-算法与数据结构基础/05-循环队列',
             '/algorithm/01-算法与数据结构基础/06-链表',
             '/algorithm/01-算法与数据结构基础/07-链表和递归',
+          ]
+        },
+        {
+          title: '02-递归无处不在',
+          collapsable: false,
+          children: [
+            '/algorithm/02-递归无处不在/01-归并排序法的原理',
           ]
         },
         {
