@@ -249,3 +249,122 @@ declare namespace Express {
   }
 }
 ```
+
+## 类的装饰器基础
+
+```ts
+/**
+ * 1. 装饰器是给类装饰用的,所以是对类修饰的,类新建好,即触发装饰器
+ * 2. 无论类实例化多少次,装饰器初始化只调用一次
+ * 3. 装饰器接收的参数是 构造函数
+ */
+// function testDecorator(constructor: any) {
+//   constructor.prototype.getName = () => {
+//     console.log('ljj');
+//   };
+// }
+//
+// @testDecorator
+// class Demo {
+// }
+
+function testDecorator(flag: boolean) {
+  if (flag) {
+    return function(constructor: any) {
+      constructor.prototype.getName = () => {
+        console.log('ljj');
+      };
+    };
+  } else {
+    return function(constructor: any) {};
+  }
+}
+
+@testDecorator(false)
+class Demo {}
+
+const demo = new Demo();
+
+// @ts-ignore
+demo.getName();
+```
+
+## 类的装饰器-进阶
+
+```ts
+/**
+ * 装饰器(二)
+ */
+// <T extends new (...args: any[]) => {}> 的意思
+// 1. `(...args: any[]) => {}` 这是一个函数,接收任意的参数,返回一个对象
+// 2. `new (...args: any[]) => {}` new 表示这是个构造函数
+// 3. T 表示 `T` 可以被 `new (...args: any[]) => {}` 实例化出来
+function testDecorator() {
+  return function <T extends new (...args: any[]) => {}>(constructor: T) {
+    return class extends constructor {
+      name = 'lee';
+
+      getName() {
+        return this.name;
+      }
+    };
+  };
+}
+
+const Demo = testDecorator()(class Demo {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+});
+
+const demo = new Demo('ljj');
+
+console.log(demo);
+console.log(demo.getName());
+```
+
+## 方法的装饰器
+
+```ts
+/**
+ *
+ * @param target
+ * 如果是普通方法，target的值是类的prototype，Demo的原型
+ * 如果是静态方法，target的值是类的构造函数
+ * @param key 装饰的函数名称
+ * @param descriptor 描述符
+ */
+function getNameDecorator(
+  target: any,
+  key: string,
+  descriptor: PropertyDescriptor,
+) {
+  // 该方法不允许被重写
+  descriptor.writable = false;
+  // 可以修改值
+  descriptor.value = function () {
+    return 'ljj__';
+  }
+  // console.log(target);
+  // console.log(key);
+}
+
+class Demo {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  @getNameDecorator
+  // @ts-ignore
+  getName() {
+    return this.name;
+  }
+}
+
+const demo = new Demo('张三');
+// demo.getName = () => '李四';
+console.log(demo.getName());
+```
