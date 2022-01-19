@@ -1,4 +1,4 @@
-# Node如何支持ES-Module
+# 06-Node 如何支持 ES-Module
 
 ## 模块化的区分
 
@@ -14,6 +14,4 @@
 
   - 加载：import
 
-  - 输出：export default / export function/const等
-
-##  
+  - 输出：export default / export function/const 等

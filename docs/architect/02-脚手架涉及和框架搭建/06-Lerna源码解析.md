@@ -1,4 +1,4 @@
-# Lerna 源码解析
+# 06-Lerna 源码解析
 
 ## WebStorm 调试技巧
 
@@ -33,16 +33,16 @@
 ```js
 #!/usr/bin/env node
 
-'use strict'
+'use strict';
 
 /* eslint-disable import/no-dynamic-require, global-require */
-const importLocal = require('import-local')
+const importLocal = require('import-local');
 
 if (importLocal(__filename)) {
-  require('npmlog').info('cli', 'using local version of lerna')
+  require('npmlog').info('cli', 'using local version of lerna');
 } else {
   // require(".")指的是导入index.js文件
-  require('.')(process.argv.slice(2))
+  require('.')(process.argv.slice(2));
 }
 ```
 
@@ -51,48 +51,47 @@ if (importLocal(__filename)) {
 ```js
 // 这个模块，把各各项目以对象的方式导入
 // 每个对象都有一个handler属性，上面挂载了各自的入口方法
-const addCmd = require('@lerna/add/command')
-const bootstrapCmd = require('@lerna/bootstrap/command')
-const changedCmd = require('@lerna/changed/command')
+const addCmd = require('@lerna/add/command');
+const bootstrapCmd = require('@lerna/bootstrap/command');
+const changedCmd = require('@lerna/changed/command');
 // ...
 ```
 
-## import-local 分析
+## import-local 原理
 
-> 当我们本地存在一个脚手架命令和全局存在脚手架命令的时候，优先本地 node_modules 的命令
-
-1. 先找到全局的 lerna
-
-2. node 在运行的时候，在 require 的时候，会注入全局变量
+> 当我们全局和本地都存在一个 lerna 项目的时候，优先使用本地的脚手架
 
 ```js
-// __filename: 文件的名称以及完整路径
-// module,
-// require方法
-// __dirname
-// exports
-'use strict'
-const path = require('path')
-const resolveCwd = require('resolve-cwd')
-const pkgDir = require('pkg-dir')
+// node运行的时候，会往 global 注入这些变量：__filename，__dirname，module，require，exports 
+'use strict';
+const path = require('path');
+const resolveCwd = require('resolve-cwd');
+// 给定一个目录，获取包含 package.json 的上级目录
+const pkgDir = require('pkg-dir');
 
 module.exports = filename => {
-  // 1. 获取全局目录，获取包含package.json的上级目录，会逐级向上找
-  // path.dirname：获取文件夹路径
-  // path.dirname("/usr/local/lib/node_modules/lerna/index.js") => /usr/local/lib/node_modules/lerna
-  const globalDir = pkgDir.sync(path.dirname(filename))
-  const relativePath = path.relative(globalDir, filename)
-  const pkg = require(path.join(globalDir, 'package.json'))
-  const localFile = resolveCwd.silent(path.join(pkg.name, relativePath))
+  const globalDir = pkgDir.sync(path.dirname(filename));
+  const relativePath = path.relative(globalDir, filename);
+  const pkg = require(path.join(globalDir, 'package.json'));
+  const localFile = resolveCwd.silent(path.join(pkg.name, relativePath));
+  const localNodeModules = path.join(process.cwd(), 'node_modules');
+
+  const filenameInLocalNodeModules =
+    !path.relative(localNodeModules, filename).startsWith('..') &&
+    // On Windows, if `localNodeModules` and `filename` are on different partitions, `path.relative()` returns the value of `filename`, resulting in `filenameInLocalNodeModules` incorrectly becoming `true`.
+    path.parse(localNodeModules).root === path.parse(filename).root;
 
   // Use `path.relative()` to detect local package installation,
   // because __filename's case is inconsistent on Windows
   // Can use `===` when targeting Node.js 8
   // See https://github.com/nodejs/node/issues/6624
-  return localFile && path.relative(localFile, filename) !== ''
-    ? require(localFile)
-    : null
-}
+  return (
+    !filenameInLocalNodeModules &&
+    localFile &&
+    path.relative(localFile, filename) !== '' &&
+    require(localFile)
+  );
+};
 ```
 
 ## path.resolve()用法
