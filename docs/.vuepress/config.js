@@ -148,100 +148,7 @@ module.exports = {
             '/ts/chapter2/advance',
           ],
         },
-        {
-          title: 'ts-axios 项目初始化',
-          collapsable: false,
-          children: [
-            '/ts/chapter3/require',
-            '/ts/chapter3/init',
-            '/ts/chapter3/base',
-          ],
-        },
-        {
-          title: 'ts-axios 基础功能实现',
-          collapsable: false,
-          children: [
-            '/ts/chapter4/url',
-            '/ts/chapter4/data',
-            '/ts/chapter4/header',
-            '/ts/chapter4/response',
-            '/ts/chapter4/response-header',
-            '/ts/chapter4/response-data',
-          ],
-        },
-        {
-          title: 'ts-axios 异常情况处理',
-          collapsable: false,
-          children: ['/ts/chapter5/error', '/ts/chapter5/enhance'],
-        },
-        {
-          title: 'ts-axios 接口扩展',
-          collapsable: false,
-          children: [
-            '/ts/chapter6/extend',
-            '/ts/chapter6/overload',
-            '/ts/chapter6/generic',
-          ],
-        },
-        {
-          title: 'ts-axios 拦截器实现',
-          collapsable: false,
-          children: ['/ts/chapter7/interceptor'],
-        },
-        {
-          title: 'ts-axios 配置化实现',
-          collapsable: false,
-          children: [
-            '/ts/chapter8/merge',
-            '/ts/chapter8/transform',
-            '/ts/chapter8/create',
-          ],
-        },
-        {
-          title: 'ts-axios 取消功能实现',
-          collapsable: false,
-          children: ['/ts/chapter9/cancel'],
-        },
-        {
-          title: 'ts-axios 更多功能实现',
-          collapsable: false,
-          children: [
-            '/ts/chapter10/withCredentials',
-            '/ts/chapter10/xsrf',
-            '/ts/chapter10/upload-download',
-            '/ts/chapter10/auth',
-            '/ts/chapter10/validateStatus',
-            '/ts/chapter10/paramsSerializer',
-            '/ts/chapter10/baseURL',
-            '/ts/chapter10/static',
-          ],
-        },
-        {
-          title: 'ts-axios 单元测试',
-          collapsable: false,
-          children: [
-            '/ts/chapter11/preface',
-            '/ts/chapter11/jest',
-            '/ts/chapter11/helpers',
-            '/ts/chapter11/requests',
-            '/ts/chapter11/headers',
-            '/ts/chapter11/instance',
-            '/ts/chapter11/interceptor',
-            '/ts/chapter11/mergeConfig',
-            '/ts/chapter11/cancel',
-            '/ts/chapter11/more',
-          ],
-        },
-        {
-          title: 'ts-axios 部署与发布',
-          collapsable: false,
-          children: ['/ts/chapter12/build-deploy', '/ts/chapter12/demo'],
-        },
-        {
-          title: '课程总结',
-          collapsable: false,
-          children: ['/ts/chapter13/summary'],
-        },
+        
       ],
       '/java/': [
         '/java/',
@@ -717,3 +624,100 @@ function resolve(dir) {
 }
 
 console.log(genSidebarConfig('architect/02-脚手架涉及和框架搭建', true));
+
+/*
+{
+          title: 'ts-axios 项目初始化',
+          collapsable: false,
+          children: [
+            '/ts/chapter3/require',
+            '/ts/chapter3/init',
+            '/ts/chapter3/base',
+          ],
+        },
+        {
+          title: 'ts-axios 基础功能实现',
+          collapsable: false,
+          children: [
+            '/ts/chapter4/url',
+            '/ts/chapter4/data',
+            '/ts/chapter4/header',
+            '/ts/chapter4/response',
+            '/ts/chapter4/response-header',
+            '/ts/chapter4/response-data',
+          ],
+        },
+        {
+          title: 'ts-axios 异常情况处理',
+          collapsable: false,
+          children: ['/ts/chapter5/error', '/ts/chapter5/enhance'],
+        },
+        {
+          title: 'ts-axios 接口扩展',
+          collapsable: false,
+          children: [
+            '/ts/chapter6/extend',
+            '/ts/chapter6/overload',
+            '/ts/chapter6/generic',
+          ],
+        },
+        {
+          title: 'ts-axios 拦截器实现',
+          collapsable: false,
+          children: ['/ts/chapter7/interceptor'],
+        },
+        {
+          title: 'ts-axios 配置化实现',
+          collapsable: false,
+          children: [
+            '/ts/chapter8/merge',
+            '/ts/chapter8/transform',
+            '/ts/chapter8/create',
+          ],
+        },
+        {
+          title: 'ts-axios 取消功能实现',
+          collapsable: false,
+          children: ['/ts/chapter9/cancel'],
+        },
+        {
+          title: 'ts-axios 更多功能实现',
+          collapsable: false,
+          children: [
+            '/ts/chapter10/withCredentials',
+            '/ts/chapter10/xsrf',
+            '/ts/chapter10/upload-download',
+            '/ts/chapter10/auth',
+            '/ts/chapter10/validateStatus',
+            '/ts/chapter10/paramsSerializer',
+            '/ts/chapter10/baseURL',
+            '/ts/chapter10/static',
+          ],
+        },
+        {
+          title: 'ts-axios 单元测试',
+          collapsable: false,
+          children: [
+            '/ts/chapter11/preface',
+            '/ts/chapter11/jest',
+            '/ts/chapter11/helpers',
+            '/ts/chapter11/requests',
+            '/ts/chapter11/headers',
+            '/ts/chapter11/instance',
+            '/ts/chapter11/interceptor',
+            '/ts/chapter11/mergeConfig',
+            '/ts/chapter11/cancel',
+            '/ts/chapter11/more',
+          ],
+        },
+        {
+          title: 'ts-axios 部署与发布',
+          collapsable: false,
+          children: ['/ts/chapter12/build-deploy', '/ts/chapter12/demo'],
+        },
+        {
+          title: '课程总结',
+          collapsable: false,
+          children: ['/ts/chapter13/summary'],
+        },
+*/

@@ -132,7 +132,7 @@ function EffectHooks(props) {
 ```js
 import React, { Component, useState, createContext, useContext } from 'react'
 
-const CountContext = createContext(undefined, undefined)
+const CountContext = createContext(undefined)
 
 // 示例1
 class Foo extends Component {
@@ -153,29 +153,38 @@ class Bar extends Component {
 }
 
 // hooks写法
+const CountContext = createContext(10);
+
 function Counter() {
-  const count = useContext(CountContext)
-  return <h1>{count}</h1>
+  const count = useContext(CountContext);
+  return <h1>{count}</h1>;
+}
+
+function Middle() {
+  return (
+    <div>
+      <div>middle</div>
+      <Counter />
+    </div>
+  );
 }
 
 function ContextHooks() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   return (
     <div>
       <button
         onClick={() => {
-          setCount(count + 1)
+          setCount(count + 1);
         }}
       >
         Click {count}
       </button>
       <CountContext.Provider value={count}>
-        <Foo></Foo>
-        <Bar></Bar>
-        <Counter></Counter>
+        <Middle></Middle>
       </CountContext.Provider>
     </div>
-  )
+  );
 }
 
 export default ContextHooks
@@ -186,6 +195,8 @@ export default ContextHooks
 > 使用 Memo 不会导致逻辑发生改变，它只作为性能优化使用
 
 把“创建”函数和依赖项数组作为参数传入 useMemo，它仅会在某个依赖项改变时才重新计算 memoized 值。这种优化有助于避免在每次渲染时都进行高开销的计算。
+
+> 总结：useMemo可以根据指定的依赖，来决定一段函数是否被重新执行，从而优化性能
 
 ```js
 import React, { Component, useState, useMemo, memo, useCallback } from 'react'

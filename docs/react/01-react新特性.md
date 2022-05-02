@@ -12,7 +12,7 @@ context 提供了一种方式, 能够让数据在组件树中传递而不必一�
 
 ```js
 import { Component, createContext } from 'react'
-
+const BatteryContext = createContext(100);
 class Leaf extends Component {
   render() {
     return (
@@ -129,7 +129,6 @@ const BatteryContext = createContext(90)
 
 class Leaf extends Component {
   // 注入一个静态方法
-  //
   static contextType = BatteryContext
   render() {
     const battery = this.context

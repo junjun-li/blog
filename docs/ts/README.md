@@ -300,7 +300,7 @@ demo.getName();
 // 2. `new (...args: any[]) => {}` new 表示这是个构造函数
 // 3. T 表示 `T` 可以被 `new (...args: any[]) => {}` 实例化出来
 function testDecorator() {
-  return function <T extends new (...args: any[]) => {}>(constructor: T) {
+  return function<T extends new (...args: any[]) => {}>(constructor: T) {
     return class extends constructor {
       name = 'lee';
 
@@ -311,13 +311,15 @@ function testDecorator() {
   };
 }
 
-const Demo = testDecorator()(class Demo {
-  name: string;
+const Demo = testDecorator()(
+  class Demo {
+    name: string;
 
-  constructor(name: string) {
-    this.name = name;
-  }
-});
+    constructor(name: string) {
+      this.name = name;
+    }
+  },
+);
 
 const demo = new Demo('ljj');
 
@@ -344,9 +346,9 @@ function getNameDecorator(
   // 该方法不允许被重写
   descriptor.writable = false;
   // 可以修改值
-  descriptor.value = function () {
+  descriptor.value = function() {
     return 'ljj__';
-  }
+  };
   // console.log(target);
   // console.log(key);
 }
