@@ -1,8 +1,8 @@
 # List 集合
 
-List 中的元素在一片连续的内存空间上顺序存储的。
-
-List 中的元素是可以重复的。
+- List是元素有序并且可以重复的集合，称为序列
+- List可以精确的控制每个元素的插入位置，或者删除某个位置的元素
+- List的两个主要实现类是ArrayList和LinkedList
 
 ## ArrayList
 
