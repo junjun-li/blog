@@ -33,7 +33,7 @@ create database text
 
 1. 创建一个TXT文件，定义修改密码的SQL语句
 
-```shell
+```sql
 # localhost表只允许本地登录
 ALTER USER 'root'@'localhost' IDENTIFIED BY '123456'
 ```

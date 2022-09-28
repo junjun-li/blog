@@ -148,7 +148,6 @@ module.exports = {
             '/ts/chapter2/advance',
           ],
         },
-
       ],
       '/java/': [
         '/java/',
@@ -187,6 +186,15 @@ module.exports = {
             '/java/01-java基础语法/19-泛型',
             '/java/01-java基础语法/20-多线程的安全与应用',
           ],
+        },
+        {
+          title: '02-MySQL',
+          collapsable: false,
+          path: '/java/02-数据库/01-MySql介绍',
+          children: [
+            '/java/02-数据库/01-MySql介绍.md',
+            '/java/02-数据库/02-数据表的相关操作.md',
+          ]
         },
       ],
       '/vue2/': [
@@ -584,7 +592,7 @@ module.exports = {
             },
           ],
         },
-      ]
+      ],
     },
     // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
     // repo: 'https://github.com/Mulander-J/Wiki1001Pro.git',
