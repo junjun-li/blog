@@ -71,5 +71,3 @@ OS name: "mac os x", version: "10.16", arch: "x86_64", family: "mac"
     </plugins>
 </build>
 ```
-
-## Maven的属性管理
