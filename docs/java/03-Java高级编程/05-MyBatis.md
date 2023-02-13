@@ -1,6 +1,10 @@
 # MyBatis
 
-## What is MyBatis?
+## 代码示例
+
+[菜鸟教程](https://www.runoob.com)
+
+## What is MyBatis? 
 
 - MyBatis 是优秀的持久性框架
 - MyBatis 使用 XML 将 SQL 与程序解耦，便于维护
@@ -95,3 +99,7 @@ public class MyBatisUtils {
 ```
 
 6. SqlSession 执行 select 语句
+
+## Mybatis工作流程
+
+
